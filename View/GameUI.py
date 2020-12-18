@@ -1,2 +1,9 @@
+from Model import Game
+
+
 class GameUI:
-    pass
+    def GameUI(self):
+        pass
+
+    def draw(self, game):
+        pass

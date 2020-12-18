@@ -5,4 +5,5 @@ class GameController:
     def GameController(self):
         pass
 
-
+    def play(self):
+        pass
