@@ -1,0 +1,2 @@
+class BattleshipEdu:
+    pass
