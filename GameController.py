@@ -1,2 +1,8 @@
+from Model import Game
+
+
 class GameController:
-    pass
+    def GameController(self):
+        pass
+
+
