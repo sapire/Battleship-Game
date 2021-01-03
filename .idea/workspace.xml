@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="" />
+    <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BattleshipGameGUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BattleshipPlayerBoard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Submarine-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Submarine-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BattleshipEdu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BattleshipGame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BoardGame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/GameState.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/BattleshipGameGUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/GameUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/GraphicalGameUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +34,12 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="JupyterTrust" id="6f27b438-bdf7-4bd3-9042-ca30b40b5f73" />
   <component name="ProjectId" id="1lpALnb4syVieXuxWaqL0liSQzG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,17 +47,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Model" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Model" />
       <recent name="$PROJECT_DIR$/View" />
     </key>
   </component>
@@ -70,43 +96,42 @@
       <option name="presentableId" value="Default" />
       <updated>1608283608487</updated>
       <workItem from="1608283616185" duration="35000" />
-      <workItem from="1608283659352" duration="1934000" />
+      <workItem from="1608283659352" duration="2301000" />
+      <workItem from="1608479188349" duration="71000" />
+      <workItem from="1608479320260" duration="185000" />
+      <workItem from="1608620674147" duration="155000" />
+      <workItem from="1608621098206" duration="385000" />
+      <workItem from="1608625856796" duration="299000" />
+      <workItem from="1609655475759" duration="2247000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1608283653349">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608283653349" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1608283653348">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608283653348" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1608283653347">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608283653347" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1608283653348">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608283653348" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
+          <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Submarine_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1608283643253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1609658298555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
