@@ -14,3 +14,9 @@ class BattleshipGameGUI:
                 self.canvas.create_rectangle(i*50, j*50, (i+1)*50, (j+1)*50)
 
         self.canvas.focus_set()
+
+    def draw(self, player):
+        pass
+
+    def update_board(self, player):
+        pass

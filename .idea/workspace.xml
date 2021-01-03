@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPlayer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipGameGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <workItem from="1608620674147" duration="155000" />
       <workItem from="1608621098206" duration="385000" />
       <workItem from="1608625856796" duration="299000" />
-      <workItem from="1609655475759" duration="2950000" />
+      <workItem from="1609655475759" duration="3259000" />
     </task>
     <servers />
   </component>
