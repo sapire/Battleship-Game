@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BattleshipGameGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipPlayerBoard.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IPlayer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Submarine-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Submarine-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BattleshipEdu.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BattleshipGame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/BoardGame.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Game.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/GameState.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/BattleshipGameGUI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/GameUI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/GraphicalGameUI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +82,7 @@
       <workItem from="1608620674147" duration="155000" />
       <workItem from="1608621098206" duration="385000" />
       <workItem from="1608625856796" duration="299000" />
-      <workItem from="1609655475759" duration="2247000" />
+      <workItem from="1609655475759" duration="2588000" />
     </task>
     <servers />
   </component>
