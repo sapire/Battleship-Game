@@ -15,9 +15,9 @@ class Tile:
         self.has_ship=True
     
     def check_hit(self) -> bool:
-        if self.has_ship==True:
-            self.has_hit=True
-            self.visited=True
+        if self.has_ship:
+            self.has_hit = True
+            self.visited = True
             self.submarine.reduceLife()
             return True
         else:
