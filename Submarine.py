@@ -2,14 +2,11 @@ class Submarine:
     def __init__(self, name, life):
         self.name = name
         self.life = life
-        self.locations = None 
-        ####location=(x1,y2)
+        self.locations = None
+        # ###location=(x1,y2)
 
-
-
-    def reduceLife(self):
-        self.life+=-1
-
+    def reduce_life(self):
+        self.life += -1
 
     # check if submarine sunk=> zero life
     def check_sunk(self):
@@ -18,7 +15,7 @@ class Submarine:
 
         return False
 
-    def createSubmarine(name: str):
+    def create_submarine(name: str):
 
         if name == "Carrier":
             submarine = Submarine(name, 5)
