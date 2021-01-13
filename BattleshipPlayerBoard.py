@@ -18,9 +18,7 @@ class BattleshipPlayerBoard:
 
             self.grid.append(arr_i)
 
-    #### location=  [ (x1,y1), (x2,y2), ...]
-
-    def checkLocation(self, submarin: Submarine, locations: list):
+    def checkLocation(self, submarin: Submarine, locations: list)->bool:
 
         for coord in locations:
             if (self.grid[coord[0]][coord[1]].has_ship) == True:
@@ -28,5 +26,10 @@ class BattleshipPlayerBoard:
 
         if locations[0][0] >= 0 and locations[len(locations)-1][0] <= 9 and locations[0][1] >= 0 and locations[len(locations)-1][1] <= 9:
             return True
-
+            
         return False
+    
+    def place_submarine_on_board(self, submarin, locations):
+        pass
+
+    

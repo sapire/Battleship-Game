@@ -8,9 +8,11 @@ class Tile:
         self.has_ship= False
         self.has_hit= False
         self.visited=False
-    
-    def SetSubmarine(self, submarie):
+        self.submarine = None
+
+    def set_submarine(self, submarie):
         self.submarine= submarie
+        self.has_ship=True
     
     def check_hit(self) -> bool:
         if self.has_ship==True:
@@ -18,7 +20,9 @@ class Tile:
             self.visited=True
             self.submarine.reduceLife()
             return True
-        return False
+        else:
+            self.visited=True
+            return False
 
         
         

@@ -11,7 +11,7 @@ class Submarine:
         self.life+=-1
 
 
-    # check if submarine sunk=> zero life
+    # check if submarine sunk=> zero lifeG
     def check_sunk(self):
         if self.life == 0:
             return True
