@@ -16,5 +16,6 @@ class IPlayer:
         pass
 
 ####check if player hit and return bool, will use "is_hit"
+
     def is_player_hit(self) -> bool:
         pass

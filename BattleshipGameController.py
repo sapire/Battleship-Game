@@ -8,6 +8,7 @@ class BattleshipGameController:
         ui = BattleshipGameGUI()
         player = HumanPlayer()
         computer = ComputerPlayer
+        is_human_turn= True
 
     def start_game(self):
         pass
@@ -24,3 +25,5 @@ class BattleshipGameController:
     def play_computer_turn(self):
         pass
     
+
+    ####to-do: 1. function for choose coord by the player

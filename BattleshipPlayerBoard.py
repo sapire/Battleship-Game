@@ -32,6 +32,10 @@ class BattleshipPlayerBoard:
         return False
     
     def place_submarine_on_board(self, submarin, locations):
-        pass
-
+        
+        for coord in locations:
+            self.grid[coord[0]][coord[1]].set_submarine(submarin)
     
+    def attempt_hit(self, coordinate):
+        return self.grid[[coordinate[0]][coordinate[1]]].check_hit()
+
