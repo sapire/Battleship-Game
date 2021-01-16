@@ -1,7 +1,9 @@
+from Tile import Tile
+from abc import ABC, ab, abstractmethod
 import BattleshipPlayerBoard
 
 
-class IPlayer:
+class IPlayer(ABC):
     """This class is intended to serve as an interface for the HumanPlayer class and the ComputerPlayer class"""
 
     def __init__(self, name):
@@ -9,13 +11,14 @@ class IPlayer:
         self.player_board = BattleshipPlayerBoard()
 
 ####both maybe depend on GUI? dont do yet.
+    @abstractmethod
     def get_move(self):
         pass
 
+    @abstractmethod
     def place_submarines(self):
         pass
 
 ####check if player hit and return bool, will use "is_hit"
-
-    def is_player_hit(self) -> bool:
-        pass
+    def is_player_hit(self, coordinate) -> bool:
+        return self.player_board.check_hit(coordinate)

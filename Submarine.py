@@ -8,7 +8,7 @@ class Submarine:
     def reduce_life(self):
         self.life += -1
 
-    # check if submarine sunk=> zero lifeG
+    # check if submarine sunk=> zero life
     def check_sunk(self):
         if self.life == 0:
             return True

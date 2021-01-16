@@ -36,6 +36,6 @@ class BattleshipPlayerBoard:
         for coord in locations:
             self.grid[coord[0]][coord[1]].set_submarine(submarin)
     
-    def attempt_hit(self, coordinate):
+    def check_hit(self, coordinate):
         return self.grid[[coordinate[0]][coordinate[1]]].check_hit()
 
