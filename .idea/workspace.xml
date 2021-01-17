@@ -4,7 +4,7 @@
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipPlayerBoard.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipPlayerBoard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Submarine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +140,7 @@
       <workItem from="1609780256808" duration="273000" />
       <workItem from="1609853498246" duration="126000" />
       <workItem from="1610526286575" duration="1254000" />
-      <workItem from="1610863384750" duration="12364000" />
+      <workItem from="1610863384750" duration="14873000" />
     </task>
     <servers />
   </component>
