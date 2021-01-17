@@ -1,6 +1,6 @@
 from Tile import Tile
-from abc import ABC, ab, abstractmethod
-import BattleshipPlayerBoard
+from abc import ABC, abstractmethod
+from BattleshipPlayerBoard  import BattleshipPlayerBoard
 
 
 class IPlayer(ABC):
@@ -8,7 +8,7 @@ class IPlayer(ABC):
 
     def __init__(self, name):
         self.player_name = name
-        self.player_board = BattleshipPlayerBoard()
+        self.player_board = BattleshipPlayerBoard(rowSize=10, colSize=10)
 
 ####both maybe depend on GUI? dont do yet.
     @abstractmethod

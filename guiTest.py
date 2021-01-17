@@ -8,11 +8,12 @@ from kivy.graphics import *
 from kivy.uix.widget import Widget
 
 
+class Battleship_Screen(GridLayout):
 
-class LoginScreen(GridLayout):
+    def __init__(self, controller,  **kwargs):
+        super(Battleship_Screen, self).__init__(**kwargs)
+        self.controller = controller
 
-    def __init__(self, **kwargs):
-        super(LoginScreen, self).__init__(**kwargs)
         letters = ['','a','b','c','d','e','f','g','h','i','j']
         for l in letters:
             self.add_widget(Label(text=l))
@@ -44,6 +45,7 @@ class LoginScreen(GridLayout):
         
     def press(self,instance: Widget):
         instance.text=f"{instance.sq_location}"
+        self.controller.play_human_turn(instance.sq_location)
         
         
         
@@ -60,11 +62,11 @@ class LoginScreen(GridLayout):
 #         # self.rows
 
 
-class MyApp(App):
+# class MyApp(App):
 
-    def build(self):
-        return LoginScreen(cols=12)
+#     def build(self):
+#         return Battleship_Screen(BattleshipGameController(),  cols=12)
 
 
-if __name__ == '__main__':
-    MyApp().run()
+# if __name__ == '__main__':
+#     MyApp().run()

@@ -1,5 +1,5 @@
-import Submarine
-import Tile
+from Submarine import Submarine
+from Tile import Tile
 
 
 class BattleshipPlayerBoard:
