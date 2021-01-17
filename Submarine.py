@@ -29,10 +29,11 @@ class Submarine:
         self.locations = None
         # ###location=(x1,y2)
 
+
     def reduce_life(self):
         """This method reduces the number of lives of the ship by one.
         Receives and returns nothing."""
-        self.life += -1
+        self.life -= 1
 
     def check_sunk(self):
         """This method tells us if a submarine has sunk.
@@ -40,6 +41,9 @@ class Submarine:
         if self.life == 0:
             return True
         return False
+    
+    def get_submarine_name(self):
+        return self.name
 
     # def create_submarine(name: str):
     #

@@ -18,8 +18,13 @@ class Tile:
         if self.has_ship:
             self.has_hit = True
             self.visited = True
-            self.submarine.reduceLife()
+            self.submarine.reduce_life()
             return True
         else:
             self.visited = True
             return False
+    
+    def get_submarine_name(self):
+        return self.submarine.get_submarine_name()
+
+

@@ -1,6 +1,7 @@
 # import BattleshipGameGUI
 # import HumanPlayer
 # import ComputerPlayer
+from IPlayer import IPlayer
 from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
 from guiTest import Battleship_Screen
@@ -17,6 +18,14 @@ class BattleshipGameController(App):
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
+    
+    def get_submarine_name(self, coordinate):
+            if self.is_human_turn:
+                return self.computer.player_board.get_submarine_name(coordinate)
+            else:
+                return self.player.player_board.get_submarine_name(coordinate)
+
+        
 
     def start_game(self):
         """We start the game with setup: first the two players place their ships.
@@ -32,7 +41,8 @@ class BattleshipGameController(App):
         pass
 
     def get_game_state(self):
-        """Returns the current state of the board."""
+        """Returns the current state of the board. 
+        Note: you cant access directly to board, you should go through the player"""
         pass
 
     def play_human_turn(self, coordinate):

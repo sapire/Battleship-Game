@@ -4,7 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
-from kivy.graphics import *
+from kivy.graphics import Color
 from kivy.uix.widget import Widget
 
 
@@ -23,11 +23,16 @@ class Battleship_Screen(GridLayout):
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
-                self.add_widget(Button(text=f"Boat{j}"))
+                if (i,j) in [(1,1),(2,1),(3,1)] or (i,j) in [(5,5,), (5,6), (5,7), (5,8)] or (i,j) in [(7,4), (7,5), (7,6),(7,7), (7,8)] or (i,j) in [(2,8), (2,9)] or (i,j) in [(6,1),(7,1), (8,1), (9,1)]:
+                    self.add_widget(Button(text=" ", background_color=(255,255,255)))
+                else:
+                    self.add_widget(Button(text=" "))
             self.add_widget(Label(text=''))
 
         for i in range(1, 13):
-            self.add_widget(Label(text='_'))
+            self.add_widget(Label(text='______'))
+
+        
 
         for l in letters:
             self.add_widget(Label(text=l))
@@ -37,7 +42,7 @@ class Battleship_Screen(GridLayout):
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
-                butt = Button(text="pressme")
+                butt = Button(text=" ")
                 butt.bind(on_press=self.press)
                 butt.sq_location = (i - 1, j - 1)
                 self.add_widget(butt)
@@ -47,9 +52,24 @@ class Battleship_Screen(GridLayout):
         instance.text = f"{instance.sq_location}"
         res = self.controller.play_human_turn(instance.sq_location)
         if not res:
-            instance.text = "X"
-            instance.background_color = [255, 0, 0]
+            instance.text="X"
+            instance.background_color=1,0,0,1
+        else:
+            instance.text=' '
+            name= self.controller.get_submarine_name(instance.sq_location)
+            if name=="Destroyer":
+                instance.background_color= 1, 0, 1,1
+            if name=="Submarine":
+                instance.background_color=0, 1, 1,1
+            
+        
 
+        
+
+            
+        
+        
+        
 # class Test(App):
 
 #     def press(self,instance):

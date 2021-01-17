@@ -29,7 +29,8 @@ class ComputerPlayer(IPlayer):
                 # hit at rand at (9,8) or (8,9)
                 pass
             elif coord[0] == 9 and coord[1] != 9:
-                #hit at rand at (
+                # hit at rand at (
+                pass
 
     def place_submarines(self):
         pass
