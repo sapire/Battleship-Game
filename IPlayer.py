@@ -10,7 +10,7 @@ class IPlayer(ABC):
         self.player_name = name
         self.player_board = BattleshipPlayerBoard(rowSize=10, colSize=10)
 
-####both maybe depend on GUI? dont do yet.
+# ###both maybe depend on GUI? dont do yet.
     @abstractmethod
     def get_move(self):
         pass
@@ -19,6 +19,6 @@ class IPlayer(ABC):
     def place_submarines(self):
         pass
 
-####check if player hit and return bool, will use "is_hit"
+# ###check if player hit and return bool, will use "is_hit"
     def is_player_hit(self, coordinate) -> bool:
         return self.player_board.check_hit(coordinate)
