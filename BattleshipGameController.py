@@ -48,6 +48,8 @@ class BattleshipGameController(App):
         return value
 
     def setup(self):
+        """The setup stage takes place before the actual game begins. At this stage each player chooses where to place
+        the ships on his own board."""
         self.player.place_submarines()
         self.computer.place_submarines()
     # ###to-do: 1. function for choose coord by the player
