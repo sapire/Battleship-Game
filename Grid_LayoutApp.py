@@ -17,7 +17,7 @@ class GridLayoutApp(GridLayout):
         for i in range(0, 10):
             col = []
             for ii in range(0, 10):
-                col.append(Button(text=" ", background_color=(68, 0, 102, 0.8)))
+                col.append(Button(text=" ", background_color=(68, 0, 102, 0.8), on_press=self.update))
                 col[ii].on_press()
                 self.my_board.add_widget(col[ii])
             self.my_board_buttons_list.append(col)
@@ -33,8 +33,8 @@ class GridLayoutApp(GridLayout):
 
         self.add_widget(self.computer_board)
 
-    def callback(self, i, ii):
-        print("pressed ", i, ii)
+    def update(self, event):
+        print(self.te)
 
     def build(self):
 
