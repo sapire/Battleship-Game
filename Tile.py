@@ -10,8 +10,8 @@ class Tile:
         self.visited = False
         self.submarine = None
 
-    def set_submarine(self, submarie):
-        self.submarine = submarie
+    def set_submarine(self, submarine):
+        self.submarine = submarine
         self.has_ship = True
 
     def check_hit(self) -> bool:
