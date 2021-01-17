@@ -1,5 +1,6 @@
 from IPlayer import IPlayer
 
+
 class HumanPlayer(IPlayer):
     def __init__(self, name: str):
         IPlayer.__init__(self, name)

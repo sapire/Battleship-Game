@@ -8,7 +8,7 @@ class BattleshipGameController:
         ui = BattleshipGameGUI()
         player = HumanPlayer()
         computer = ComputerPlayer
-        is_human_turn= True
+        is_human_turn = True
 
     def start_game(self):
         pass

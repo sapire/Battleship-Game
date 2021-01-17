@@ -1,3 +1,5 @@
+from BattleshipGameGUI import BattleshipGameGUI
+from Grid_LayoutApp import GridLayoutApp
 
 
 def print_hi(name):
@@ -7,6 +9,11 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    gui = BattleshipGameGUI()
+    gui.draw()
+    gui.run()
+    root = GridLayoutApp()
+    root.run()
+    print("22")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
