@@ -1,26 +1,3 @@
-# import kivy
-# from kivy.app import App
-# from kivy.uix.gridlayout import GridLayout
-# from kivy.uix.label import Label
-# from kivy.uix.textinput import TextInput
-
-# kivy.require('1.0.6') # replace with your current kivy version !
-
-# from kivy.app import App
-# from kivy.uix.label import Label
-
-# class Board(GridLayout):
-#     def __init__(self):
-#         super(Board,self).__init__(**kwargs)
-#         self.cols = 10
-#         self.rows = 10
-
-#         self.add_widget()
-
-
-# if __name__ == '__main__':
-#     MyApp().run()
-
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -28,6 +5,8 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
 from kivy.graphics import *
+from kivy.uix.widget import Widget
+
 
 
 class LoginScreen(GridLayout):
@@ -56,11 +35,35 @@ class LoginScreen(GridLayout):
 
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
+<<<<<<< HEAD
             for j in range(1, 11):
                 self.add_widget(Button(text=f"Boat{j}"))
             self.add_widget(Label(text=''))
+=======
+            for j in range(1,11):
+                butt= Button(text="pressme")
+                butt.bind(on_press=self.press)
+                butt.sq_location = (i -1 ,j - 1)
+                self.add_widget(butt)
+            self.add_widget(Label(text=''))
+        
+    def press(self,instance: Widget):
+        instance.text=f"{instance.sq_location}"
+        
+        
+        
+# class Test(App):
 
-        # self.rows
+#     def press(self,instance):
+#         print("Pressed")
+#     def build(self):
+#         butt=Button(text="Click")
+#         butt.bind(on_press=self.press) #dont use brackets while calling function
+#         return butt
+
+>>>>>>> b4097facb95332f02749538f259f0e3f05914a12
+
+#         # self.rows
 
 
 class MyApp(App):
