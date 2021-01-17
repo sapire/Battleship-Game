@@ -28,9 +28,10 @@ class BattleshipGameController(App):
 
     def play_human_turn(self, coordinate):
         print(f'human chose {coordinate}')
+        value = self.computer.player_board.check_hit(coordinate)
+        print(value)
+        return value
         
-        pass
-
     def play_computer_turn(self):
         pass
     

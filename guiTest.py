@@ -45,7 +45,11 @@ class Battleship_Screen(GridLayout):
         
     def press(self,instance: Widget):
         instance.text=f"{instance.sq_location}"
-        self.controller.play_human_turn(instance.sq_location)
+        res=self.controller.play_human_turn(instance.sq_location)
+        if not res:
+            instance.text="X"
+            instance.background_color=[255, 0, 0]
+            
         
         
         
