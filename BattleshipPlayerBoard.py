@@ -23,8 +23,7 @@ class BattleshipPlayerBoard:
         self.grid[2][9].set_submarine(Submarine("Submarine"))
 
     def get_submarine_name(self, coordinate):
-       return self.grid[coordinate[0]][coordinate[1]].get_submarine_name()
-
+        return self.grid[coordinate[0]][coordinate[1]].get_submarine_name()
 
     # ### location=  [ (x1,y1), (x2,y2), ...]
 
@@ -55,7 +54,6 @@ class BattleshipPlayerBoard:
     def check_hit(self, coordinate):
         print(coordinate)
         return self.grid[coordinate[0]][coordinate[1]].check_hit()
-
 
 # x = BattleshipPlayerBoard()
 # m = Submarine("Shira")
