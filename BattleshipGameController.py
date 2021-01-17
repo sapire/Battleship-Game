@@ -26,7 +26,7 @@ class BattleshipGameController(App):
         while self.winner is None:
             self.player.get_move()
             self.computer.get_move()
-        print("{}wins!", self.winner)
+        print(f"{self.winner}wins!")
 
     def update_gui(self):
         pass
