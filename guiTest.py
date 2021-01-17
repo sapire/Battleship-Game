@@ -35,11 +35,9 @@ class LoginScreen(GridLayout):
 
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
-<<<<<<< HEAD
             for j in range(1, 11):
                 self.add_widget(Button(text=f"Boat{j}"))
             self.add_widget(Label(text=''))
-=======
             for j in range(1,11):
                 butt= Button(text="pressme")
                 butt.bind(on_press=self.press)
@@ -61,7 +59,6 @@ class LoginScreen(GridLayout):
 #         butt.bind(on_press=self.press) #dont use brackets while calling function
 #         return butt
 
->>>>>>> b4097facb95332f02749538f259f0e3f05914a12
 
 #         # self.rows
 
