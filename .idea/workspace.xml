@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipGameGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Submarine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,29 @@
       <recent name="$PROJECT_DIR$/View" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.guiTest">
+  <component name="RunManager" selected="Python.BattleshipGameController">
+    <configuration name="BattleshipGameController" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Submarine-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BattleshipGameController.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="guiTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Submarine-Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,6 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.BattleshipGameController" />
         <item itemvalue="Python.guiTest" />
       </list>
     </recent_temporary>
@@ -115,7 +141,7 @@
       <workItem from="1609780256808" duration="273000" />
       <workItem from="1609853498246" duration="126000" />
       <workItem from="1610526286575" duration="1254000" />
-      <workItem from="1610863384750" duration="8308000" />
+      <workItem from="1610863384750" duration="10956000" />
     </task>
     <servers />
   </component>
@@ -146,7 +172,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Submarine_Project$guiTest.coverage" NAME="guiTest Coverage Results" MODIFIED="1610878692339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$guiTest.coverage" NAME="guiTest Coverage Results" MODIFIED="1610883296351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Submarine_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1610877500344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipGameController.coverage" NAME="BattleshipGameController Coverage Results" MODIFIED="1610883420685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

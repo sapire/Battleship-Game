@@ -12,7 +12,6 @@ class Submarine:
     def check_sunk(self):
         if self.life == 0:
             return True
-
         return False
 
     def create_submarine(name: str):
