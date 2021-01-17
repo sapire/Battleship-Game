@@ -5,6 +5,7 @@ class Submarine:
         self.locations = None
         # ###location=(x1,y2)
 
+
     def reduce_life(self):
         self.life += -1
 

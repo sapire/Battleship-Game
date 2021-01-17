@@ -18,6 +18,15 @@ class BattleshipPlayerBoard:
 
             self.grid.append(arr_i)
 
+        self.grid[0][0].set_submarine(Submarine("Destroyer", 2))
+        self.grid[0][1].set_submarine(Submarine("Destroyer",2))
+
+        self.grid[0][9].set_submarine(Submarine("Submarin", 3))
+        self.grid[1][9].set_submarine(Submarine("Submarin", 3))
+        self.grid[2][9].set_submarine(Submarine("Submarin", 3))
+
+        
+
     # ### location=  [ (x1,y1), (x2,y2), ...]
 
     def check_location(self, submarin: Submarine, locations: list):

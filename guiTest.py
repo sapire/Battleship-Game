@@ -49,6 +49,14 @@ class Battleship_Screen(GridLayout):
         if not res:
             instance.text="X"
             instance.background_color=[255, 0, 0]
+
+        elif instance.sq_location==(0,0) or (0,1):
+            instance.background_color=[104, 61, 235]
+            
+        
+
+        
+
             
         
         
