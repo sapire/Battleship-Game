@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipPlayerBoard.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipPlayerBoard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ComputerPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumanPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submarine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +30,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -52,7 +48,7 @@
       <recent name="$PROJECT_DIR$/View" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.BattleshipPlayerBoard">
+  <component name="RunManager" selected="Python.BattleshipGameController">
     <configuration name="BattleshipGameController" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Submarine-Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,8 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.BattleshipPlayerBoard" />
         <item itemvalue="Python.BattleshipGameController" />
+        <item itemvalue="Python.BattleshipPlayerBoard" />
         <item itemvalue="Python.guiTest" />
       </list>
     </recent_temporary>
@@ -168,7 +164,10 @@
       <workItem from="1609780256808" duration="273000" />
       <workItem from="1609853498246" duration="126000" />
       <workItem from="1610526286575" duration="1254000" />
-      <workItem from="1610863384750" duration="18417000" />
+      <workItem from="1610863384750" duration="18590000" />
+      <workItem from="1610907434324" duration="165000" />
+      <workItem from="1610907609082" duration="990000" />
+      <workItem from="1610908801998" duration="687000" />
     </task>
     <servers />
   </component>
@@ -188,9 +187,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipPlayerBoard.coverage" NAME="BattleshipPlayerBoard Coverage Results" MODIFIED="1610896531691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipPlayerBoard.coverage" NAME="BattleshipPlayerBoard Coverage Results" MODIFIED="1610908218741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Submarine_Project$guiTest.coverage" NAME="guiTest Coverage Results" MODIFIED="1610883296351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Submarine_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1610877500344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipGameController.coverage" NAME="BattleshipGameController Coverage Results" MODIFIED="1610886216144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipGameController.coverage" NAME="BattleshipGameController Coverage Results" MODIFIED="1610908225541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

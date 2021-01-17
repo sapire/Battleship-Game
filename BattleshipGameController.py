@@ -18,14 +18,12 @@ class BattleshipGameController(App):
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
-    
-    def get_submarine_name(self, coordinate):
-            if self.is_human_turn:
-                return self.computer.player_board.get_submarine_name(coordinate)
-            else:
-                return self.player.player_board.get_submarine_name(coordinate)
 
-        
+    def get_submarine_name(self, coordinate):
+        if self.is_human_turn:
+            return self.computer.player_board.get_submarine_name(coordinate)
+        else:
+            return self.player.player_board.get_submarine_name(coordinate)
 
     def start_game(self):
         """We start the game with setup: first the two players place their ships.

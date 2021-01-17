@@ -16,21 +16,9 @@ class ComputerPlayer(IPlayer):
 
         else:
             coord = self.hit_list[0]
-            if coord[0] == 0 and coord[1] == 0:
-                # hit at (1,0) or (0,1)
-                pass
-            elif coord[0] == 0 and coord[1] != 0:
-                # hit at rand at (1, coord[1])
-                pass
-            elif coord[0] != 0 and coord[1] == 0:
-                # hit at rand at (coord[1], 0)
-                pass
-            elif coord[0] == 9 and coord[1] == 9:
-                # hit at rand at (9,8) or (8,9)
-                pass
-            elif coord[0] == 9 and coord[1] != 9:
-                # hit at rand at (
-                pass
+
+            self.check_location([coord[0]+1, coord[1]])
+
 
     def place_submarines(self):
         pass
