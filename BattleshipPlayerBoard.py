@@ -31,12 +31,18 @@ class BattleshipPlayerBoard:
             
         return False
     
-    def place_submarine_on_board(self, submarin, locations):
-        
+    def place_submarine_on_board(self, submarine, locations):
+        """This method takes the Submarine object to be placed on the board, and also takes the locations on which
+        the submarine will be placed.
+        It iterates through the location coordinates and places the Submarine.
+        Doesn't return anything."""
         for coord in locations:
-            self.grid[coord[0]][coord[1]].set_submarine(submarin)
+            self.grid[coord[0]][coord[1]].set_submarine(submarine)
     
     def check_hit(self, coordinate):
         print(coordinate)
         return self.grid[coordinate[0]][coordinate[1]].check_hit()
 
+x = BattleshipPlayerBoard(10, 10)
+m = Submarine("Shira", 4)
+x.place_submarine_on_board(m, [[3, 4], [3,2]])

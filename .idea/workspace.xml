@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipPlayerBoard.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipPlayerBoard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +140,7 @@
       <workItem from="1609780256808" duration="273000" />
       <workItem from="1609853498246" duration="126000" />
       <workItem from="1610526286575" duration="1254000" />
-      <workItem from="1610863384750" duration="11413000" />
+      <workItem from="1610863384750" duration="12364000" />
     </task>
     <servers />
   </component>
@@ -172,6 +173,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Submarine_Project$guiTest.coverage" NAME="guiTest Coverage Results" MODIFIED="1610883296351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Submarine_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1610877500344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipGameController.coverage" NAME="BattleshipGameController Coverage Results" MODIFIED="1610883420685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Submarine_Project$BattleshipGameController.coverage" NAME="BattleshipGameController Coverage Results" MODIFIED="1610886216144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
