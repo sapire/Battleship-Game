@@ -4,7 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
-from kivy.graphics import *
+from kivy.graphics import Color
 from kivy.uix.widget import Widget
 
 
@@ -48,10 +48,14 @@ class Battleship_Screen(GridLayout):
         res = self.controller.play_human_turn(instance.sq_location)
         if not res:
             instance.text="X"
-            instance.background_color=[255, 0, 0]
-
-        # elif instance.sq_location==(0,0) or (0,1):
-        #     instance.background_color=[104, 61, 235]
+            instance.background_color=1,0,0,1
+        else:
+            instance.text=' '
+            name= self.controller.get_submarine_name(instance.sq_location)
+            if name=="Destroyer":
+                instance.background_color= 1, 0, 1,1
+            if name=="Submarine":
+                instance.background_color=0, 1, 1,1
             
         
 

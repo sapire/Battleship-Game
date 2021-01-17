@@ -23,4 +23,8 @@ class Tile:
         else:
             self.visited = True
             return False
+    
+    def get_submarine_name(self):
+        return self.submarine.get_submarine_name()
+
 

@@ -15,14 +15,16 @@ class BattleshipPlayerBoard:
 
             self.grid.append(arr_i)
 
-        self.grid[0][0].set_submarine(Submarine("Destroyer", 2))
-        self.grid[0][1].set_submarine(Submarine("Destroyer",2))
+        self.grid[0][0].set_submarine(Submarine("Destroyer"))
+        self.grid[0][1].set_submarine(Submarine("Destroyer"))
 
-        self.grid[0][9].set_submarine(Submarine("Submarin", 3))
-        self.grid[1][9].set_submarine(Submarine("Submarin", 3))
-        self.grid[2][9].set_submarine(Submarine("Submarin", 3))
+        self.grid[0][9].set_submarine(Submarine("Submarine"))
+        self.grid[1][9].set_submarine(Submarine("Submarine"))
+        self.grid[2][9].set_submarine(Submarine("Submarine"))
 
-        
+    def get_submarine_name(self, coordinate):
+       return self.grid[coordinate[0]][coordinate[1]].get_submarine_name()
+
 
     # ### location=  [ (x1,y1), (x2,y2), ...]
 
@@ -55,6 +57,6 @@ class BattleshipPlayerBoard:
         return self.grid[coordinate[0]][coordinate[1]].check_hit()
 
 
-x = BattleshipPlayerBoard(10, 10)
-m = Submarine("Shira", 4)
-x.place_submarine_on_board(m, [[3, 4], [3, 2]])
+# x = BattleshipPlayerBoard(10, 10)
+# m = Submarine("Shira", 4)
+# x.place_submarine_on_board(m, [[3, 4], [3, 2]])
