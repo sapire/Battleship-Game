@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="366842b5-0e3f-4278-9e8e-efc5d87da850" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipGameController.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipGameGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipGameGUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ComputerPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumanPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Submarine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Submarine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +169,7 @@
       <workItem from="1610908801998" duration="687000" />
       <workItem from="1613995389899" duration="4414000" />
       <workItem from="1614061128055" duration="505000" />
-      <workItem from="1614147407023" duration="742000" />
+      <workItem from="1614147407023" duration="2391000" />
     </task>
     <servers />
   </component>
