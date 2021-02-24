@@ -20,4 +20,9 @@ class ComputerPlayer(IPlayer):
             self.check_location([coord[0] + 1, coord[1]])
 
     def place_submarines(self):
+        # at the beginning choose a random, valid place on the board for the first ship
+        # while there are still ships to place:
+        #   choose at random if the ship is vertical or horizontal
+        #   then choose at random a place on the board
+        #   if the chosen location is invalid, try again
         pass
