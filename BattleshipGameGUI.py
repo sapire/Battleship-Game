@@ -1,4 +1,4 @@
-class BattleshipGameGUI:
+class BattleshipGameGUI:  # is it needed??
     def __init__(self):
         pass
 

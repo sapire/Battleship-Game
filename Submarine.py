@@ -29,7 +29,6 @@ class Submarine:
         self.locations = None
         # ###location=(x1,y2)
 
-
     def reduce_life(self):
         """This method reduces the number of lives of the ship by one.
         Receives and returns nothing."""
@@ -41,24 +40,6 @@ class Submarine:
         if self.life == 0:
             return True
         return False
-    
+
     def get_submarine_name(self):
         return self.name
-
-    # def create_submarine(name: str):
-    #
-    #     if name == "Carrier":
-    #         submarine = Submarine(name, 5)
-    #         return submarine
-    #     if name == "Battleship":
-    #         submarine = Submarine(name, 4)
-    #         return submarine
-    #     if name == "Cruiser":
-    #         submarine = Submarine(name, 3)
-    #         return submarine
-    #     if name == "Submarine":
-    #         submarine = Submarine(name, 3)
-    #         return submarine
-    #     if name == "Destroyer":
-    #         submarine = Submarine(name, 2)
-    #         return submarine

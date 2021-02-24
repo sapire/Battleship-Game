@@ -8,10 +8,10 @@ from kivy.graphics import Color
 from kivy.uix.widget import Widget
 
 
-class Battleship_Screen(GridLayout):
+class BattleshipScreen(GridLayout):
 
     def __init__(self, controller, **kwargs):
-        super(Battleship_Screen, self).__init__(**kwargs)
+        super(BattleshipScreen, self).__init__(**kwargs)
         self.controller = controller
 
         letters = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
@@ -23,16 +23,16 @@ class Battleship_Screen(GridLayout):
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
-                if (i,j) in [(1,1),(2,1),(3,1)] or (i,j) in [(5,5,), (5,6), (5,7), (5,8)] or (i,j) in [(7,4), (7,5), (7,6),(7,7), (7,8)] or (i,j) in [(2,8), (2,9)] or (i,j) in [(6,1),(7,1), (8,1), (9,1)]:
-                    self.add_widget(Button(text=" ", background_color=(255,255,255)))
+                if (i, j) in [(1, 1), (2, 1), (3, 1)] or (i, j) in [(5, 5,), (5, 6), (5, 7), (5, 8)] or (i, j) in [
+                    (7, 4), (7, 5), (7, 6), (7, 7), (7, 8)] or (i, j) in [(2, 8), (2, 9)] or (i, j) in [(6, 1), (7, 1),
+                                                                                                        (8, 1), (9, 1)]:
+                    self.add_widget(Button(text=" ", background_color=(255, 255, 255)))
                 else:
                     self.add_widget(Button(text=" "))
             self.add_widget(Label(text=''))
 
         for i in range(1, 13):
             self.add_widget(Label(text='______'))
-
-        
 
         for l in letters:
             self.add_widget(Label(text=l))
@@ -52,24 +52,16 @@ class Battleship_Screen(GridLayout):
         instance.text = f"{instance.sq_location}"
         res = self.controller.play_human_turn(instance.sq_location)
         if not res:
-            instance.text="X"
-            instance.background_color=1,0,0,1
+            instance.text = "X"
+            instance.background_color = 1, 0, 0, 1
         else:
-            instance.text=' '
-            name= self.controller.get_submarine_name(instance.sq_location)
-            if name=="Destroyer":
-                instance.background_color= 1, 0, 1,1
-            if name=="Submarine":
-                instance.background_color=0, 1, 1,1
-            
-        
+            instance.text = ' '
+            name = self.controller.get_submarine_name(instance.sq_location)
+            if name == "Destroyer":
+                instance.background_color = 1, 0, 1, 1
+            if name == "Submarine":
+                instance.background_color = 0, 1, 1, 1
 
-        
-
-            
-        
-        
-        
 # class Test(App):
 
 #     def press(self,instance):
@@ -86,7 +78,7 @@ class Battleship_Screen(GridLayout):
 # class MyApp(App):
 
 #     def build(self):
-#         return Battleship_Screen(BattleshipGameController(),  cols=12)
+#         return BattleshipScreen(BattleshipGameController(),  cols=12)
 
 
 # if __name__ == '__main__':

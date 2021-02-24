@@ -10,4 +10,3 @@ class HumanPlayer(IPlayer):
 
     def place_submarines(self):
         pass
-        

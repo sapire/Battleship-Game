@@ -4,13 +4,13 @@
 from IPlayer import IPlayer
 from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
-from guiTest import Battleship_Screen
+from guiTest import BattleshipScreen
 from kivy.app import App
 
 
 class BattleshipGameController(App):
     def build(self):
-        return Battleship_Screen(self, cols=12)
+        return BattleshipScreen(self, cols=12)
 
     def __init__(self):
         App.__init__(self)
@@ -35,10 +35,10 @@ class BattleshipGameController(App):
             self.computer.get_move()
         print(f"{self.winner}wins!")
 
-    def update_gui(self):
+    def update_gui(self):  # remove if unnecessary
         pass
 
-    def get_game_state(self):
+    def get_game_state(self):  # remove if unnecessary
         """Returns the current state of the board. 
         Note: you cant access directly to board, you should go through the player"""
         pass

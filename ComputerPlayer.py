@@ -17,8 +17,7 @@ class ComputerPlayer(IPlayer):
         else:
             coord = self.hit_list[0]
 
-            self.check_location([coord[0]+1, coord[1]])
-
+            self.check_location([coord[0] + 1, coord[1]])
 
     def place_submarines(self):
         pass
