@@ -5,7 +5,7 @@ class HumanPlayer(IPlayer):
     def __init__(self, name: str):
         IPlayer.__init__(self, name)
 
-    def get_move(self):
+    def get_move(self):  # delete if unnecessary
 
         pass
 
