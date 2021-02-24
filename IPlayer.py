@@ -7,6 +7,7 @@ class IPlayer(ABC):
     """This class is intended to serve as an interface for the HumanPlayer class and the ComputerPlayer class"""
 
     def __init__(self, name):
+        """This method assigns the player its name, and creates a new, empty board for him."""
         self.player_name = name
         self.player_board = BattleshipPlayerBoard()
 
