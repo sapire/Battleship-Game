@@ -13,12 +13,24 @@ class ComputerPlayer(IPlayer):
         if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
             rand_col = random.randint(0, 9)
             rand_row = random.randint(0, 9)
+            is_hit = self.player_board.check_hit([rand_row, rand_col])
+            if is_hit is True:
+                self.hit_list.append((rand_row, rand_col))
             # check if hit, if so add to hit_list
 
-        else:
-            coord = self.hit_list[0]
+        else:  # there is something in the hit list
+            x, y = self.hit_list[0]
+            corners = [(0, 0), (0, 9), (9, 0), (9, 9)]
+            if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
+                pass
 
-            self.check_location([coord[0] + 1, coord[1]])
+            # note to self:
+            # 1. if coord from hit list is not in the corners, any adjacent tile will do
+            # 2. else, must check the tile exists first
+            # 3. Must check when the ship has been destroyed, and delete from hit_list accordingly
+
+            # self.check_location([coord[0] + 1, coord[1]])  # not sure what this was for so commented out
+
 
     def place_submarines(self):
         # at the beginning choose a random, valid place on the board for the first ship

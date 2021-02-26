@@ -22,6 +22,10 @@ class BattleshipPlayerBoard:
         self.grid[1][9].set_submarine(Submarine("Submarine"))
         self.grid[2][9].set_submarine(Submarine("Submarine"))
 
+        self.grid[3][3].set_submarine(Submarine("Cruiser"))
+        self.grid[4][4].set_submarine(Submarine("Battleship"))
+        self.grid[5][5].set_submarine(Submarine("Carrier"))
+
     def get_submarine_name(self, coordinate):
         return self.grid[coordinate[0]][coordinate[1]].get_submarine_name()
 
