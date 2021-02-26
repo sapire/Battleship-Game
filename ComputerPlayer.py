@@ -28,7 +28,6 @@ class ComputerPlayer(IPlayer):
         #   if the chosen location is invalid, try again
 
         # Place "Carrier":
-
         is_carrier_placed = False
         while not is_carrier_placed:
             rand_col = random.randint(0, 1)
@@ -37,7 +36,20 @@ class ComputerPlayer(IPlayer):
             if self.player_board[rand_col*5][rand_row] is None and self.player_board[rand_col*5+1][rand_row] is None and self.player_board[rand_col*5+2][rand_row] is None and self.player_board[rand_col*5+3][rand_row] is None and self.player_board[rand_col*5+4][rand_row] is None:
                 my_carrier = Submarine("Carrier")
                 location_list = [(rand_col*5, rand_row), (rand_col*5+1, rand_row), (rand_col*5+2, rand_row), (rand_col*5+3, rand_row), (rand_col*5+4, rand_row)]
-                self.player_board.place_submarine_on_board(my_carrier)
+                self.player_board.place_submarine_on_board(my_carrier, location_list)
+                is_carrier_placed = True
                 pass
+
+        # Place "Battleship":
+        is_battleship_placed = False
+        while not is_battleship_placed:
+            rand_col = random.randint(0, 1)
+            rand_row = random.randint(0, 9)
+            # check if the spot is available
+            if self.player_board[rand_col*5][rand_row] is None and self.player_board[rand_col*5+1][rand_row] is None and self.player_board[rand_col*5+2][rand_row] is None and self.player_board[rand_col*5+3][rand_row] is None:
+                my_battleship = Submarine("Battleship")
+                location_list = [(rand_col*5, rand_row), (rand_col*5+1, rand_row), (rand_col*5+2, rand_row), (rand_col*5+3, rand_row)]
+                self.player_board.place_submarine_on_board(my_battleship, location_list)
+                is_battleship_placed = True
 
         pass
