@@ -61,6 +61,12 @@ class BattleshipScreen(GridLayout):
                 instance.background_color = 1, 0, 1, 1
             if name == "Submarine":
                 instance.background_color = 0, 1, 1, 1
+            if name == "Cruiser":
+                instance.background_color = 42, 63, 0, 57
+            if name == "Battleship":
+                instance.background_color = 39, 0, 61, 68
+            if name == "Carrier":
+                instance.background_color = 61, 52, 0, 68
 
 # class Test(App):
 

@@ -16,4 +16,5 @@ class HumanPlayer(IPlayer):
         # show Carrier (5 tiles) to player, the ship should follow the mouse of the player's cursor
         # when the user clicks, the submarine should be placed
         # move on to place the next submarine until none are left
+
         pass
