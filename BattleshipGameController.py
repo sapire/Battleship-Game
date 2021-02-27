@@ -1,6 +1,9 @@
 # import BattleshipGameGUI
 # import HumanPlayer
 # import ComputerPlayer
+from logging import LoggerAdapter
+from Submarine import Submarine
+from MainScreen import Main_screen
 from IPlayer import IPlayer
 from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
@@ -10,7 +13,7 @@ from kivy.app import App
 
 class BattleshipGameController(App):
     def build(self):
-        return BattleshipScreen(self, cols=12)
+        return Main_screen(self)
 
     def __init__(self):
         App.__init__(self)
@@ -18,6 +21,10 @@ class BattleshipGameController(App):
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
+        self.submarine_name=None
+        self.orientation='>'
+        self.game_state='placing'
+        
 
     def get_submarine_name(self, coordinate):
         if self.is_human_turn:
@@ -62,6 +69,23 @@ class BattleshipGameController(App):
         self.computer.place_submarines()
     # ###to-do: 1. function for choose coord by the player
 
+    def place_submarine(self, location):
+        submarine = Submarine(self.submarine_name)
+        locations= []
+        for i in range(submarine.life):
+            if self.orientation=='>':
+                coord=(location[0],location[1]+1)
+                locations.append(coord)
 
+            else:
+                coord=(location[0]+1, location[0])
+                locations.append(coord)
+                
+                        
+
+        return self.player.place_submarine(submarine, locations)
+
+
+        
 if __name__ == "__main__":
     BattleshipGameController().run()

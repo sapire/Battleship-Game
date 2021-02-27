@@ -1,3 +1,4 @@
+from BattleshipGameController import BattleshipGameController
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -12,7 +13,7 @@ class BattleshipScreen(GridLayout):
 
     def __init__(self, controller, **kwargs):
         super(BattleshipScreen, self).__init__(**kwargs)
-        self.controller = controller
+        self.controller : BattleshipGameController = controller
 
         letters = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
         for l in letters:
@@ -23,12 +24,10 @@ class BattleshipScreen(GridLayout):
         for i in range(1, 11):
             self.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
-                if (i, j) in [(1, 1), (2, 1), (3, 1)] or (i, j) in [(5, 5,), (5, 6), (5, 7), (5, 8)] or (i, j) in [
-                    (7, 4), (7, 5), (7, 6), (7, 7), (7, 8)] or (i, j) in [(2, 8), (2, 9)] or (i, j) in [(6, 1), (7, 1),
-                                                                                                        (8, 1), (9, 1)]:
-                    self.add_widget(Button(text=" ", background_color=(255, 255, 255)))
-                else:
-                    self.add_widget(Button(text=" "))
+                btn = Button(text=" ")
+                btn.sq_location = (i - 1, j - 1)
+                btn.bind(on_press=self.select)
+                self.add_widget(btn)
             self.add_widget(Label(text=''))
 
         for i in range(1, 13):
@@ -68,24 +67,11 @@ class BattleshipScreen(GridLayout):
             if name == "Carrier":
                 instance.background_color = 61, 52, 0, 68
 
-# class Test(App):
+    def select(self, instance:Widget):
+        location = instance.sq_location
+        res= self.controller.place_submarine(instance.sq_location)
 
-#     def press(self,instance):
-#         print("Pressed")
-#     def build(self):
-#         butt=Button(text="Click")
-#         butt.bind(on_press=self.press) #dont use brackets while calling function
-#         return butt
+        # for i in self.children:
+        #     if self.controller.orientation==">":
 
-
-#         # self.rows
-
-
-# class MyApp(App):
-
-#     def build(self):
-#         return BattleshipScreen(BattleshipGameController(),  cols=12)
-
-
-# if __name__ == '__main__':
-#     MyApp().run()
+        

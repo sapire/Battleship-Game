@@ -16,9 +16,9 @@ class IPlayer(ABC):
     def get_move(self):
         pass
 
-    @abstractmethod
-    def place_submarines(self):
-        pass
+    # @abstractmethod
+    def place_submarine(self, submarine, location):
+        return self.player_board.place_submarine_on_board(submarine, location)
 
     # ###check if player hit and return bool, will use "is_hit"
     def is_player_hit(self, coordinate) -> bool:
