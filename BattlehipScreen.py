@@ -14,10 +14,6 @@ from kivy.uix.widget import Widget
 class BattleshipScreen(BoxLayout):
 
     def __init__(self, controller, **kwargs):
-<<<<<<< HEAD:guiTest.py
-        super(BattleshipScreen, self).__init__(**kwargs)
-        self.controller: BattleshipGameController = controller
-=======
         super(BattleshipScreen, self).__init__(orientation='vertical')
         self.direction = 'vertical'
         self.controller = controller
@@ -25,7 +21,6 @@ class BattleshipScreen(BoxLayout):
         self.bottomGrid : GridLayout = GridLayout(cols=12)
         self.add_widget(self.topGrid)
         self.add_widget(self.bottomGrid)
->>>>>>> 3f87d359aaff3187a14ee946869e4cdc931609a3:BattlehipScreen.py
 
         letters = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
         for l in letters:
@@ -80,14 +75,6 @@ class BattleshipScreen(BoxLayout):
             if name == "Carrier":
                 instance.background_color = 61, 52, 0, 68
 
-<<<<<<< HEAD:guiTest.py
-    def select(self, instance: Widget):
-        location = instance.sq_location
-        res = self.controller.place_submarine(instance.sq_location)
-
-        # for i in self.children:
-        #     if self.controller.orientation==">":
-=======
     def select(self, instance:Button):
         try:
             coordiantes = self.controller.place_submarine(instance.sq_location)
@@ -105,4 +92,3 @@ class BattleshipScreen(BoxLayout):
         
 
         
->>>>>>> 3f87d359aaff3187a14ee946869e4cdc931609a3:BattlehipScreen.py
