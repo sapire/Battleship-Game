@@ -108,15 +108,19 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board.grid[rand_col * 5][rand_row] is None and self.player_board.grid[rand_col * 5 + 1][
-                rand_row] is None and self.player_board.grid[rand_col * 5 + 2][rand_row] is None and \
-                    self.player_board.grid[rand_col * 5 + 3][rand_row] is None and self.player_board.grid[rand_col * 5 + 4][
-                rand_row] is None:
-                my_carrier = Submarine("Carrier")
-                location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row),
-                                 (rand_col * 5 + 3, rand_row), (rand_col * 5 + 4, rand_row)]
-                self.player_board.place_submarine_on_board(my_carrier, location_list)
-                is_carrier_placed = True
+            # if self.player_board.grid[rand_col * 5][rand_row] is None and self.player_board.grid[rand_col * 5 + 1][
+            #     rand_row] is None and self.player_board.grid[rand_col * 5 + 2][rand_row] is None and \
+            #         self.player_board.grid[rand_col * 5 + 3][rand_row] is None and self.player_board.grid[rand_col * 5 + 4][
+            #     rand_row] is None:
+            #     my_carrier = Submarine("Carrier")
+            #     location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row),
+            #                      (rand_col * 5 + 3, rand_row), (rand_col * 5 + 4, rand_row)]
+            #     self.player_board.place_submarine_on_board(my_carrier, location_list)
+            #     is_carrier_placed = True
+
+            my_carrier = Submarine("Carrier")
+            location_list = [(rand_col*5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row), (rand_col * 5 + 3, rand_row), (rand_col * 5 + 4, rand_row)]
+            is_carrier_placed = self.player_board.place_submarine_on_board(my_carrier, location_list)
 
         # Place "Battleship":
         is_battleship_placed = False
@@ -124,14 +128,17 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
-                rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None and \
-                    self.player_board[rand_col * 5 + 3][rand_row] is None:
-                my_battleship = Submarine("Battleship")
-                location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row),
-                                 (rand_col * 5 + 3, rand_row)]
-                self.player_board.place_submarine_on_board(my_battleship, location_list)
-                is_battleship_placed = True
+            # if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
+            #     rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None and \
+            #         self.player_board[rand_col * 5 + 3][rand_row] is None:
+            #     my_battleship = Submarine("Battleship")
+            #     location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row),
+            #                      (rand_col * 5 + 3, rand_row)]
+            #     self.player_board.place_submarine_on_board(my_battleship, location_list)
+            #     is_battleship_placed = True
+            my_battleship = Submarine("Battleship")
+            location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row), (rand_col * 5 + 3, rand_row)]
+            is_battleship_placed = self.player_board.place_submarine_on_board(my_battleship, location_list)
 
         # Place "Cruiser":
         is_cruiser_placed = False
@@ -139,12 +146,15 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
-                rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None:
-                my_cruiser = Submarine("Cruiser")
-                location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
-                self.player_board.place_submarine_on_board(my_cruiser, location_list)
-                is_cruiser_placed = True
+            # if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
+            #     rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None:
+            #     my_cruiser = Submarine("Cruiser")
+            #     location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
+            #     self.player_board.place_submarine_on_board(my_cruiser, location_list)
+            #     is_cruiser_placed = True
+            my_cruiser = Submarine("Cruiser")
+            location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
+            is_cruiser_placed = self.player_board.place_submarine_on_board(my_cruiser, location_list)
 
         # Place "Submarine":
         is_submarine_placed = False
@@ -152,12 +162,15 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
-                rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None:
-                my_submarine = Submarine("Submarine")
-                location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
-                self.player_board.place_submarine_on_board(my_submarine, location_list)
-                is_submarine_placed = True
+            # if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
+            #     rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None:
+            #     my_submarine = Submarine("Submarine")
+            #     location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
+            #     self.player_board.place_submarine_on_board(my_submarine, location_list)
+            #     is_submarine_placed = True
+            my_submarine = Submarine("Submarine")
+            location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row)]
+            is_submarine_placed = self.player_board.place_submarine_on_board(my_submarine, location_list)
 
         # Place "Destroyer":
         is_destroyer_placed = False
@@ -165,12 +178,15 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
-                rand_row] is None:
-                my_destroyer = Submarine("Destroyer")
-                location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row)]
-                self.player_board.place_submarine_on_board(my_destroyer, location_list)
-                is_destroyer_placed = True
+            # if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
+            #     rand_row] is None:
+            #     my_destroyer = Submarine("Destroyer")
+            #     location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row)]
+            #     self.player_board.place_submarine_on_board(my_destroyer, location_list)
+            #     is_destroyer_placed = True
+            my_destroyer = Submarine("Destroyer")
+            location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row)]
+            is_destroyer_placed = self.player_board.place_submarine_on_board(my_destroyer, location_list)
 
     def place_submarine(self, submarine, location):
         return super().place_submarine(submarine, location)
