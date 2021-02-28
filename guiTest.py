@@ -1,4 +1,4 @@
-from BattleshipGameController import BattleshipGameController
+
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -13,7 +13,7 @@ class BattleshipScreen(GridLayout):
 
     def __init__(self, controller, **kwargs):
         super(BattleshipScreen, self).__init__(**kwargs)
-        self.controller : BattleshipGameController = controller
+        self.controller: BattleshipGameController = controller
 
         letters = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
         for l in letters:
@@ -67,11 +67,9 @@ class BattleshipScreen(GridLayout):
             if name == "Carrier":
                 instance.background_color = 61, 52, 0, 68
 
-    def select(self, instance:Widget):
+    def select(self, instance: Widget):
         location = instance.sq_location
-        res= self.controller.place_submarine(instance.sq_location)
+        res = self.controller.place_submarine(instance.sq_location)
 
         # for i in self.children:
         #     if self.controller.orientation==">":
-
-        

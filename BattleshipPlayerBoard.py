@@ -52,7 +52,7 @@ class BattleshipPlayerBoard:
         the submarine will be placed.
         It iterates through the location coordinates and places the Submarine.
         Doesn't return anything."""
-        if (self.check_location(locations)):
+        if self.check_location(locations):
             for coord in locations:
                 self.grid[coord[0]][coord[1]].set_submarine(submarine)
             return True
