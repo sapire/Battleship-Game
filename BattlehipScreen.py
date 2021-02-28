@@ -89,16 +89,6 @@ class BattleshipScreen(BoxLayout):
             
         
 
-        # The function place_submarine attempts to position a submarine on the board. if it succeeds it returns true.
-        # But even if it does succeeds, it only affects the data in the player board, but the UI is not updated.
-        # Now you have to updated the ui if the function returned True.
-        # To do so you have to write a loop which iterates over the widgets and you have to find out which of the widgets are those occupied by the boat.
-        # A clue: would be to test the value sq_location of each widget against a list of coordinates which hold the ship.
-        # PS you may modify the function place_submarine to return the location array of coordinates so it would be easier to compare.
-
-
-
-        # for i in self.children:
-        #     if self.controller.orientation==">":
+        
 
         
