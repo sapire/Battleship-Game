@@ -18,7 +18,7 @@ class ComputerPlayer(IPlayer):
             is_hit = self.player_board.check_hit([x, y])
             if is_hit is True:
                 self.hit_list.append((x, y))
-            return
+            return x, y
 
         if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
             rand_col = random.randint(0, 9)
@@ -26,6 +26,7 @@ class ComputerPlayer(IPlayer):
             is_hit = self.player_board.check_hit([rand_row, rand_col])  # make move and check if hit
             if is_hit is True:  # check if hit, if so add to hit_list
                 self.hit_list.append((rand_row, rand_col))
+            return rand_row, rand_col
 
         else:  # there is something in the hit list
             x, y = self.hit_list.pop()
@@ -68,7 +69,7 @@ class ComputerPlayer(IPlayer):
             is_hit = self.player_board.check_hit([x, y])
             if is_hit is True:
                 self.hit_list.append((x, y))
-            return
+            return x, y
 
                 # rand_move = random.randint(0, 3)  # 0 for left, 1 for right, 2 for up, 3 for down
                 # if rand_move == 0:
