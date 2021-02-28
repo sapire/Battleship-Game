@@ -15,7 +15,6 @@ class BattleshipScreen(BoxLayout):
 
     def __init__(self, controller, **kwargs):
         super(BattleshipScreen, self).__init__(orientation='vertical')
-        self.direction = 'vertical'
         self.controller = controller
         self.topGrid : GridLayout = GridLayout(cols=12)
         self.bottomGrid : GridLayout = GridLayout(cols=12)
@@ -76,7 +75,7 @@ class BattleshipScreen(BoxLayout):
                 instance.background_color = 61, 52, 0, 68
 
     def select(self, instance:Button):
-        try:
+        # try:
             coordiantes = self.controller.place_submarine(instance.sq_location)
             print(coordiantes)
             if coordiantes:
@@ -84,8 +83,8 @@ class BattleshipScreen(BoxLayout):
                     if hasattr(i, 'sq_location') and i.sq_location in coordiantes:
                         i.background_color = 1,0,0,1
 
-        except Exception as err:
-            Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
+        # except Exception as err:
+        #     Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
             
         
 

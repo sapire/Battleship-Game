@@ -9,25 +9,32 @@ from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
 from BattlehipScreen import BattleshipScreen
 from kivy.app import App
-from kivy.properties import StringProperty
+from kivy.properties import NumericProperty, ObjectProperty, StringProperty
+from kivy.event import EventDispatcher
 
-
-class BattleshipGameController(App):
+class BattleshipGameController(App, EventDispatcher):
+    game_state = StringProperty('setup')
+    
     def build(self):
         return Main_screen(self)
 
+    def on_game_state(self, instance, value):
+        if value == 'setup_computer':
+            self.computer.place_submarines()
+            self.game_state = 'human_turn'
+            
+       
+
     def __init__(self):
-        App.__init__(self)
+        super(BattleshipGameController, self).__init__()
         self.player = HumanPlayer("Moshe")
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
         self.submarine_name=None
         self.orientation='>'
-        self.game_state = StringProperty(defaultvalue='setup')
         self.user_submarines_positioned = 0
-    
-        
+     
 
     def get_submarine_name(self, coordinate):
         if self.is_human_turn:
@@ -88,7 +95,7 @@ class BattleshipGameController(App):
         if res:
             self.user_submarines_positioned = self.user_submarines_positioned + 1
             if (self.user_submarines_positioned == 5):
-                self.game_state = 'match'
+                self.game_state = 'setup_computer'
             return locations
         else:
             raise Exception("Could not locate ship")
