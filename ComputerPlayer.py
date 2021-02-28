@@ -12,6 +12,9 @@ class ComputerPlayer(IPlayer):
         # for example if in the hit_list we have (2,2), then in the nearby_moves
         # we will have [(1,2), (3, 2), (2, 1), (2, 3)]
 
+    def add_to_hit_list(self, coordinate):
+        self.hit_list.append((coordinate[0], coordinate[1]))
+
     def get_move(self):
         if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
             x, y = self.nearby_moves.pop()

@@ -70,8 +70,8 @@ class BattleshipGameController(App, EventDispatcher):
         return value
 
     def play_computer_turn(self):
-        coord = self.computer.get_move()
-        val = self.player.player_board.check_hit(coord)
+        coord = self.computer.get_move()  # move chosen by computer
+        val = self.player.player_board.check_hit(coord)  # was the move a hit or a miss
         return coord, val
 
     def setup(self):
