@@ -7,8 +7,9 @@ from MainScreen import Main_screen
 from IPlayer import IPlayer
 from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
-from guiTest import BattleshipScreen
+from BattlehipScreen import BattleshipScreen
 from kivy.app import App
+from kivy.properties import StringProperty
 
 
 class BattleshipGameController(App):
@@ -23,7 +24,9 @@ class BattleshipGameController(App):
         self.winner = None
         self.submarine_name=None
         self.orientation='>'
-        self.game_state='placing'
+        self.game_state = StringProperty(defaultvalue='setup')
+        self.user_submarines_positioned = 0
+    
         
 
     def get_submarine_name(self, coordinate):
@@ -53,7 +56,6 @@ class BattleshipGameController(App):
     def play_human_turn(self, coordinate):
         print(f'Human chose {coordinate}')
         value = self.computer.player_board.check_hit(coordinate)
-        print(value)
         return value
 
     def play_computer_turn(self, coordinate):
@@ -65,7 +67,6 @@ class BattleshipGameController(App):
     def setup(self):
         """The setup stage takes place before the actual game begins. At this stage each player chooses where to place
         the ships on his own board."""
-        self.player.place_submarines()
         self.computer.place_submarines()
     # ###to-do: 1. function for choose coord by the player
 
@@ -74,16 +75,23 @@ class BattleshipGameController(App):
         locations= []
         for i in range(submarine.life):
             if self.orientation=='>':
-                coord=(location[0],location[1]+1)
+                coord=(location[0],location[1]+i)
                 locations.append(coord)
 
             else:
-                coord=(location[0]+1, location[0])
+                coord=(location[0]+i, location[1])
                 locations.append(coord)
                 
                         
 
-        return self.player.place_submarine(submarine, locations)
+        res = self.player.place_submarine(submarine, locations)
+        if res:
+            self.user_submarines_positioned = self.user_submarines_positioned + 1
+            if (self.user_submarines_positioned == 5):
+                self.game_state = 'match'
+            return locations
+        else:
+            raise Exception("Could not locate ship")
 
 
         

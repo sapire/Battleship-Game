@@ -10,15 +10,22 @@ class IPlayer(ABC):
         """This method assigns the player its name, and creates a new, empty board for him."""
         self.player_name = name
         self.player_board = BattleshipPlayerBoard()
+        self.placed_submarines = []
 
     # ###both maybe depend on GUI? dont do yet.
     @abstractmethod
     def get_move(self):
         pass
 
-    # @abstractmethod
+    @abstractmethod
     def place_submarine(self, submarine, location):
-        return self.player_board.place_submarine_on_board(submarine, location)
+        if submarine.name in self.placed_submarines:
+            raise Exception(f"Cant place {submarine.name} again")
+        res = self.player_board.place_submarine_on_board(submarine, location)
+        if res:
+            self.placed_submarines.append(submarine.name)
+
+        return res
 
     # ###check if player hit and return bool, will use "is_hit"
     def is_player_hit(self, coordinate) -> bool:
