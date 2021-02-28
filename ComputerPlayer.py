@@ -8,39 +8,85 @@ class ComputerPlayer(IPlayer):
     def __init__(self):
         IPlayer.__init__(self, "Computer")
         self.hit_list = []
+        self.nearby_moves = []  # will hold the nearby tiles from the hit_list.
+        # for example if in the hit_list we have (2,2), then in the nearby_moves
+        # we will have [(1,2), (3, 2), (2, 1), (2, 3)]
 
     def get_move(self):
+        if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
+            x, y = self.nearby_moves.pop()
+            is_hit = self.player_board.check_hit([x, y])
+            if is_hit is True:
+                self.hit_list.append((x, y))
+            return
+
         if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
             rand_col = random.randint(0, 9)
             rand_row = random.randint(0, 9)
-            is_hit = self.player_board.check_hit([rand_row, rand_col])
-            if is_hit is True:
+            is_hit = self.player_board.check_hit([rand_row, rand_col])  # make move and check if hit
+            if is_hit is True:  # check if hit, if so add to hit_list
                 self.hit_list.append((rand_row, rand_col))
-            # check if hit, if so add to hit_list
 
         else:  # there is something in the hit list
-            x, y = self.hit_list[0]
-            corners = [(0, 0), (0, 9), (9, 0), (9, 9)]
+            x, y = self.hit_list.pop()
             if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
-                pass
-            else:
-                rand_move = random.randint(0, 3)  # 0 for left, 1 for right, 2 for up, 3 for down
-                if rand_move == 0:
-                    is_hit = self.player_board.check_hit([x-1, y])
-                    if is_hit:
-                        self.hit_list.append((x-1, y))
-                if rand_move == 1:
-                    is_hit = self.player_board.check_hit([x+1, y])
-                    if is_hit:
-                        self.hit_list.append((x+1, y))
-                if rand_move == 2:
-                    is_hit = self.player_board.check_hit([x, y-1])
-                    if is_hit:
-                        self.hit_list.append((x, y-1))
-                if rand_move == 3:
-                    is_hit = self.player_board.check_hit([x, y+1])
-                    if is_hit:
-                        self.hit_list.append((x, y+1))
+                if x == 0 and y == 0:  # top left corner
+                    self.nearby_moves.append((x, y + 1))
+                    self.nearby_moves.append((x + 1, y))
+                elif x == 9 and y == 9:  # bottom right corner
+                    self.nearby_moves.append((x - 1, y))
+                    self.nearby_moves.append((x, y - 1))
+                elif x == 0 and y == 9:  #
+                    self.nearby_moves.append((x + 1, y))
+                    self.nearby_moves.append((x, y - 1))
+                elif x == 9 and y == 0:
+                    self.nearby_moves.append((x - 1, y))
+                    self.nearby_moves.append((x, y + 1))
+                elif x == 0:
+                    self.nearby_moves.append((x + 1, y))
+                    self.nearby_moves.append((x, y + 1))
+                    self.nearby_moves.append((x, y - 1))
+                elif x == 9:
+                    self.nearby_moves.append((x - 1, y))
+                    self.nearby_moves.append((x, y - 1))
+                    self.nearby_moves.append((x, y + 1))
+                elif y == 0:
+                    self.nearby_moves.append((x - 1, y))
+                    self.nearby_moves.append((x + 1, y))
+                    self.nearby_moves.append((x, y + 1))
+                elif y == 9:
+                    self.nearby_moves.append((x + 1, y))
+                    self.nearby_moves.append((x - 1, y))
+                    self.nearby_moves.append((x, y - 1))
+            else:  # not on the walls or corners so we can move anywhere
+                self.nearby_moves.append((x - 1, y))
+                self.nearby_moves.append((x + 1, y))
+                self.nearby_moves.append((x, y - 1))
+                self.nearby_moves.append((x, y + 1))
+
+            x, y = self.nearby_moves.pop()
+            is_hit = self.player_board.check_hit([x, y])
+            if is_hit is True:
+                self.hit_list.append((x, y))
+            return
+
+                # rand_move = random.randint(0, 3)  # 0 for left, 1 for right, 2 for up, 3 for down
+                # if rand_move == 0:
+                #     is_hit = self.player_board.check_hit([x-1, y])
+                #     if is_hit:
+                #         self.hit_list.append((x-1, y))
+                # if rand_move == 1:
+                #     is_hit = self.player_board.check_hit([x+1, y])
+                #     if is_hit:
+                #         self.hit_list.append((x+1, y))
+                # if rand_move == 2:
+                #     is_hit = self.player_board.check_hit([x, y-1])
+                #     if is_hit:
+                #         self.hit_list.append((x, y-1))
+                # if rand_move == 3:
+                #     is_hit = self.player_board.check_hit([x, y+1])
+                #     if is_hit:
+                #         self.hit_list.append((x, y+1))
 
             # note to self:
             # 1. if coord from hit list is not in the corners, any adjacent tile will do
@@ -62,9 +108,9 @@ class ComputerPlayer(IPlayer):
             rand_col = random.randint(0, 1)
             rand_row = random.randint(0, 9)
             # check if the spot is available
-            if self.player_board[rand_col * 5][rand_row] is None and self.player_board[rand_col * 5 + 1][
-                rand_row] is None and self.player_board[rand_col * 5 + 2][rand_row] is None and \
-                    self.player_board[rand_col * 5 + 3][rand_row] is None and self.player_board[rand_col * 5 + 4][
+            if self.player_board.grid[rand_col * 5][rand_row] is None and self.player_board.grid[rand_col * 5 + 1][
+                rand_row] is None and self.player_board.grid[rand_col * 5 + 2][rand_row] is None and \
+                    self.player_board.grid[rand_col * 5 + 3][rand_row] is None and self.player_board.grid[rand_col * 5 + 4][
                 rand_row] is None:
                 my_carrier = Submarine("Carrier")
                 location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row), (rand_col * 5 + 2, rand_row),
