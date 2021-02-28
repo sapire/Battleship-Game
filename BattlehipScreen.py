@@ -1,51 +1,64 @@
 
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivy.uix.popup import Popup
 
 from kivy.graphics import Color
 from kivy.uix.widget import Widget
 
 
-class BattleshipScreen(GridLayout):
+class BattleshipScreen(BoxLayout):
 
     def __init__(self, controller, **kwargs):
+<<<<<<< HEAD:guiTest.py
         super(BattleshipScreen, self).__init__(**kwargs)
         self.controller: BattleshipGameController = controller
+=======
+        super(BattleshipScreen, self).__init__(orientation='vertical')
+        self.direction = 'vertical'
+        self.controller = controller
+        self.topGrid : GridLayout = GridLayout(cols=12)
+        self.bottomGrid : GridLayout = GridLayout(cols=12)
+        self.add_widget(self.topGrid)
+        self.add_widget(self.bottomGrid)
+>>>>>>> 3f87d359aaff3187a14ee946869e4cdc931609a3:BattlehipScreen.py
 
         letters = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
         for l in letters:
-            self.add_widget(Label(text=l))
+            self.topGrid.add_widget(Label(text=l))
 
-        self.add_widget(Label(text=''))
+        self.topGrid.add_widget(Label(text=''))
 
         for i in range(1, 11):
-            self.add_widget(Label(text=f"{i}"))
+            self.topGrid.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
                 btn = Button(text=" ")
                 btn.sq_location = (i - 1, j - 1)
                 btn.bind(on_press=self.select)
-                self.add_widget(btn)
-            self.add_widget(Label(text=''))
+                self.topGrid.add_widget(btn)
+            self.topGrid.add_widget(Label(text=''))
 
-        for i in range(1, 13):
-            self.add_widget(Label(text='______'))
+        # for i in range(1, 13):
+        #     self.add_widget(Label(text='______'))
 
         for l in letters:
-            self.add_widget(Label(text=l))
+            self.bottomGrid.add_widget(Label(text=l))
 
-        self.add_widget(Label(text=''))
+        self.bottomGrid.add_widget(Label(text=''))
 
         for i in range(1, 11):
-            self.add_widget(Label(text=f"{i}"))
+            self.bottomGrid.add_widget(Label(text=f"{i}"))
             for j in range(1, 11):
                 butt = Button(text=" ")
                 butt.bind(on_press=self.press)
+
                 butt.sq_location = (i - 1, j - 1)
-                self.add_widget(butt)
-            self.add_widget(Label(text=''))
+                self.bottomGrid.add_widget(butt)
+            self.bottomGrid.add_widget(Label(text=''))
 
     def press(self, instance: Widget):
         instance.text = f"{instance.sq_location}"
@@ -67,9 +80,29 @@ class BattleshipScreen(GridLayout):
             if name == "Carrier":
                 instance.background_color = 61, 52, 0, 68
 
+<<<<<<< HEAD:guiTest.py
     def select(self, instance: Widget):
         location = instance.sq_location
         res = self.controller.place_submarine(instance.sq_location)
 
         # for i in self.children:
         #     if self.controller.orientation==">":
+=======
+    def select(self, instance:Button):
+        try:
+            coordiantes = self.controller.place_submarine(instance.sq_location)
+            print(coordiantes)
+            if coordiantes:
+                for i in self.topGrid.walk(restrict=True):
+                    if hasattr(i, 'sq_location') and i.sq_location in coordiantes:
+                        i.background_color = 1,0,0,1
+
+        except Exception as err:
+            Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
+            
+        
+
+        
+
+        
+>>>>>>> 3f87d359aaff3187a14ee946869e4cdc931609a3:BattlehipScreen.py

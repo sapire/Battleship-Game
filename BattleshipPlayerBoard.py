@@ -15,21 +15,8 @@ class BattleshipPlayerBoard:
 
             self.grid.append(arr_i)
 
-        self.grid[0][0].set_submarine(Submarine("Destroyer"))
-        self.grid[0][1].set_submarine(Submarine("Destroyer"))
-
-        self.grid[0][9].set_submarine(Submarine("Submarine"))
-        self.grid[1][9].set_submarine(Submarine("Submarine"))
-        self.grid[2][9].set_submarine(Submarine("Submarine"))
-
-        self.grid[3][3].set_submarine(Submarine("Cruiser"))
-        self.grid[4][4].set_submarine(Submarine("Battleship"))
-        self.grid[5][5].set_submarine(Submarine("Carrier"))
-
     def get_submarine_name(self, coordinate):
         return self.grid[coordinate[0]][coordinate[1]].get_submarine_name()
-
-    # ### location=  [ (x1,y1), (x2,y2), ...]
 
     def check_location(self, locations: list):
         """During the setup stage (when each player places his own ships on his board), this method takes a list of
@@ -37,15 +24,14 @@ class BattleshipPlayerBoard:
         'Locations' is a list of coordinates, in the following format:
         location=  [ (x1,y1), (x2,y2), ...]
         """
-        for coord in locations:
-            if self.grid[coord[0]][coord[1]].has_ship is True:
-                return False  # if there is already a ship on this tile, you can't place another one on top of it.
+        try:
+            for coord in locations:
+                if self.grid[coord[0]][coord[1]].has_ship is True:
+                    return False  # if there is already a ship on this tile, you can't place another one on top of it.
+        except:
+            raise Exception("This ship will be located out of the board")
 
-        if locations[0][0] >= 0 and locations[len(locations) - 1][0] <= 9 and locations[0][1] >= 0 and \
-                locations[len(locations) - 1][1] <= 9:
-            return True
-
-        return False
+        return True
 
     def place_submarine_on_board(self, submarine, locations):
         """This method takes the Submarine object to be placed on the board, and also takes the locations on which

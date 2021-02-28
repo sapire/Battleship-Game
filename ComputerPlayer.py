@@ -125,3 +125,6 @@ class ComputerPlayer(IPlayer):
                 location_list = [(rand_col * 5, rand_row), (rand_col * 5 + 1, rand_row)]
                 self.player_board.place_submarine_on_board(my_destroyer, location_list)
                 is_destroyer_placed = True
+
+    def place_submarine(self, submarine, location):
+        return super().place_submarine(submarine, location)

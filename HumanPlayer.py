@@ -9,6 +9,11 @@ class HumanPlayer(IPlayer):
 
         pass
 
+    def place_submarine(self, submarine, location):
+        return super().place_submarine(submarine, location)
+        # return self.player_board.place_submarine_on_board(submarine, location)
+
+
     # def place_submarine(self, submarine, location):
     #     # display message 'Please place all your ships on the board. Ships cannot be on top of each other. All ships
     #     # must be placed before the game can begin'

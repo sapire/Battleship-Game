@@ -1,8 +1,7 @@
 
-from guiTest import BattleshipScreen
+from BattlehipScreen import BattleshipScreen
 from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
@@ -39,6 +38,7 @@ class Ship_Selection(BoxLayout):
         self.add_widget(destroyer)
         self.add_widget(Widget())
 
+        self.controller.bind(on_game_state=self.disable_buttons)
 
     def shipSelected(self,instance):
         self.controller.submarine_name= instance.text
@@ -52,6 +52,8 @@ class Ship_Selection(BoxLayout):
             
         self.controller.orientation= instance.text
 
+    def disable_buttons(self, game_state):
+        print(instance)
 
 
 

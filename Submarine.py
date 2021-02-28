@@ -1,3 +1,6 @@
+from configparser import Error
+
+
 class Submarine:
     def __init__(self, name):
         if name == "Carrier":
@@ -21,7 +24,7 @@ class Submarine:
             self.life = 2
 
         else:
-            print("Error while trying to create submarine. Submarine name can only be one of the following:"
+            raise Error("Error while trying to create submarine. Submarine name can only be one of the following:"
                   "Carrier, Battleship, Cruiser, Submarine, Destroyer")
 
         # self.name = name
