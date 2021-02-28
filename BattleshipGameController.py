@@ -65,11 +65,11 @@ class BattleshipGameController(App, EventDispatcher):
         value = self.computer.player_board.check_hit(coordinate)
         return value
 
-    def play_computer_turn(self, coordinate):
-        print(f'Computer chose: {coordinate}')
-        value = self.player.player_board.check_hit(coordinate)
-        print(value)
-        return value
+    def play_computer_turn(self):
+       coord= self.computer.get_move()
+       val=self.player.player_board.check_hit(coord)
+       return coord, val
+
 
     def setup(self):
         """The setup stage takes place before the actual game begins. At this stage each player chooses where to place

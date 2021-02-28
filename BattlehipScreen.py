@@ -16,6 +16,7 @@ class BattleshipScreen(BoxLayout):
     def __init__(self, controller, **kwargs):
         super(BattleshipScreen, self).__init__(orientation='vertical')
         self.controller = controller
+        self.controller.bind(game_state=self.computer_turn)
         self.topGrid : GridLayout = GridLayout(cols=12)
         self.bottomGrid : GridLayout = GridLayout(cols=12)
         self.add_widget(self.topGrid)
@@ -73,9 +74,10 @@ class BattleshipScreen(BoxLayout):
                 instance.background_color = 2, 0, 1, 2  # pink
             if name == "Carrier":
                 instance.background_color = 0, 1, 0, 1  # dark green
+        self.controller.game_state='computer_turn'
 
     def select(self, instance:Button):
-        # try:
+        try:
             coordiantes = self.controller.place_submarine(instance.sq_location)
             print(coordiantes)
             if coordiantes:
@@ -84,10 +86,31 @@ class BattleshipScreen(BoxLayout):
                         i.background_color = 2, 0, 1, 2
                         # 1,0,0,1
 
-        # except Exception as err:
-        #     Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
-            
-        
+        except Exception as err:
+            Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
+
+    def computer_turn(self, instance, game_state):
+        if game_state=='computer_turn':
+            coord, res=self.controller.play_computer_turn()
+            if res==False:
+                for widg in self.topGrid.walk(restrict=True):
+                    if hasattr(widg, 'sq_location') and widg.sq_location == coord:
+                        widg.text='X'
+                        widg.background_color=195, 98, 96, 1
+            else:
+                for widg in self.topGrid.walk(restrict=True):
+                    if hasattr(widg, 'sq_location') and widg.sq_location == coord:
+                        widg.text=''
+                        widg.background_color= 0, 0, 1, 10
+        self.controller.game_state='human_turn'
+
+
+
+                   
+                        
+                
+
+     
 
         
 
