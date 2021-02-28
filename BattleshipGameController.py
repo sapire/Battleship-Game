@@ -9,22 +9,35 @@ from HumanPlayer import HumanPlayer
 from ComputerPlayer import ComputerPlayer
 from BattlehipScreen import BattleshipScreen
 from kivy.app import App
-from kivy.properties import StringProperty
+from kivy.properties import NumericProperty, ObjectProperty, StringProperty
+from kivy.event import EventDispatcher
 
 
-class BattleshipGameController(App):
+class BattleshipGameController(App, EventDispatcher):
+    game_state = StringProperty('setup')
+
     def build(self):
         return Main_screen(self)
 
+    def on_game_state(self, instance, value):
+        if value == 'setup_computer':
+            self.computer.place_submarines()
+            self.game_state = 'human_turn'
+
     def __init__(self):
-        App.__init__(self)
+        super(BattleshipGameController, self).__init__()
         self.player = HumanPlayer("Moshe")
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
+
         self.submarine_name = None
         self.orientation = '>'
         self.game_state = StringProperty(defaultvalue='setup')
+        self.user_submarines_positioned = 0
+
+        self.submarine_name = None
+        self.orientation = '>'
         self.user_submarines_positioned = 0
 
     def get_submarine_name(self, coordinate):
@@ -56,11 +69,10 @@ class BattleshipGameController(App):
         value = self.computer.player_board.check_hit(coordinate)
         return value
 
-    def play_computer_turn(self, coordinate):
-        print(f'Computer chose: {coordinate}')
-        value = self.player.player_board.check_hit(coordinate)
-        print(value)
-        return value
+    def play_computer_turn(self):
+        coord = self.computer.get_move()
+        val = self.player.player_board.check_hit(coord)
+        return coord, val
 
     def setup(self):
         """The setup stage takes place before the actual game begins. At this stage each player chooses where to place
@@ -84,8 +96,8 @@ class BattleshipGameController(App):
         res = self.player.place_submarine(submarine, locations)
         if res:
             self.user_submarines_positioned = self.user_submarines_positioned + 1
-            if (self.user_submarines_positioned == 5):
-                self.game_state = 'match'
+            if self.user_submarines_positioned == 5:
+                self.game_state = 'setup_computer'
             return locations
         else:
             raise Exception("Could not locate ship")
