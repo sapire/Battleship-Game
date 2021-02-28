@@ -23,3 +23,8 @@ class HumanPlayer(IPlayer):
     #     # move on to place the next submarine until none are left
 
     #     pass
+
+    def get_score(self):
+        score = 1000
+        # for every miss, the player loses 100 points
+        # for every hit, the player gains 300 points

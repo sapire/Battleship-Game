@@ -22,12 +22,10 @@ class BattleshipGameController(App):
         self.computer = ComputerPlayer()
         self.is_human_turn = True
         self.winner = None
-        self.submarine_name=None
-        self.orientation='>'
+        self.submarine_name = None
+        self.orientation = '>'
         self.game_state = StringProperty(defaultvalue='setup')
         self.user_submarines_positioned = 0
-    
-        
 
     def get_submarine_name(self, coordinate):
         if self.is_human_turn:
@@ -68,21 +66,20 @@ class BattleshipGameController(App):
         """The setup stage takes place before the actual game begins. At this stage each player chooses where to place
         the ships on his own board."""
         self.computer.place_submarines()
+
     # ###to-do: 1. function for choose coord by the player
 
     def place_submarine(self, location):
         submarine = Submarine(self.submarine_name)
-        locations= []
+        locations = []
         for i in range(submarine.life):
-            if self.orientation=='>':
-                coord=(location[0],location[1]+i)
+            if self.orientation == '>':
+                coord = (location[0], location[1] + i)
                 locations.append(coord)
 
             else:
-                coord=(location[0]+i, location[1])
+                coord = (location[0] + i, location[1])
                 locations.append(coord)
-                
-                        
 
         res = self.player.place_submarine(submarine, locations)
         if res:
@@ -94,6 +91,5 @@ class BattleshipGameController(App):
             raise Exception("Could not locate ship")
 
 
-        
 if __name__ == "__main__":
     BattleshipGameController().run()
