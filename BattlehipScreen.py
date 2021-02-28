@@ -64,15 +64,15 @@ class BattleshipScreen(BoxLayout):
             instance.text = ' '
             name = self.controller.get_submarine_name(instance.sq_location)
             if name == "Destroyer":
-                instance.background_color = 1, 0, 1, 1
+                instance.background_color = 1, 0, 1, 1  # dark pink
             if name == "Submarine":
-                instance.background_color = 0, 1, 1, 1
+                instance.background_color = 0, 1, 1, 1  # dark turquoise (blue)
             if name == "Cruiser":
-                instance.background_color = 1, 0, 0, 0
+                instance.background_color = 0, 0, 1, 10  # dark blue
             if name == "Battleship":
-                instance.background_color = 0, 50, 0, 1
+                instance.background_color = 2, 0, 1, 2  # pink
             if name == "Carrier":
-                instance.background_color = 61, 52, 0, 68
+                instance.background_color = 0, 1, 0, 1  # dark green
 
     def select(self, instance:Button):
         # try:
@@ -81,7 +81,8 @@ class BattleshipScreen(BoxLayout):
             if coordiantes:
                 for i in self.topGrid.walk(restrict=True):
                     if hasattr(i, 'sq_location') and i.sq_location in coordiantes:
-                        i.background_color = 1,0,0,1
+                        i.background_color = 2, 0, 1, 2
+                        # 1,0,0,1
 
         # except Exception as err:
         #     Popup(title='Error positioning submarine', content=Label(text=f"{err}"), size_hint=(1,None) ,size=(200,200)).open()
@@ -90,4 +91,4 @@ class BattleshipScreen(BoxLayout):
 
         
 
-        
+
