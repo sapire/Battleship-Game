@@ -6,11 +6,12 @@ from BattleshipPlayerBoard import BattleshipPlayerBoard
 class IPlayer(ABC):
     """This class is intended to serve as an interface for the HumanPlayer class and the ComputerPlayer class"""
 
-    def __init__(self, name):
+    def __init__(self, name, controller):
         """This method assigns the player its name, and creates a new, empty board for him."""
         self.player_name = name
         self.player_board = BattleshipPlayerBoard()
         self.placed_submarines = []
+        self.controller = controller
 
     # ###both maybe depend on GUI? dont do yet.
     @abstractmethod
@@ -33,3 +34,6 @@ class IPlayer(ABC):
 
     def get_submarine_name(self, coordinate):
         return self.player_board.get_submarine_name(coordinate)
+
+    def get_submarine(self, coordinate):
+        return self.player_board.get_submarine(coordinate)

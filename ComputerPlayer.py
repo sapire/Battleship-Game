@@ -5,8 +5,8 @@ from Submarine import *
 
 
 class ComputerPlayer(IPlayer):
-    def __init__(self):
-        IPlayer.__init__(self, "Computer")
+    def __init__(self, controller):
+        IPlayer.__init__(self, "Computer", controller)
         self.hit_list = []
         self.nearby_moves = []  # will hold the nearby tiles from the hit_list.
         # for example if in the hit_list we have (2,2), then in the nearby_moves

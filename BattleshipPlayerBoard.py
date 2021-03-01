@@ -47,4 +47,9 @@ class BattleshipPlayerBoard:
 
     def check_hit(self, coordinate):
         return self.grid[coordinate[0]][coordinate[1]].check_hit()
+    
+    def get_submarine(self, coordinate):
+        tile: Tile = self.grid[coordinate[0]][coordinate[1]]
+        return tile.submarine
+
 

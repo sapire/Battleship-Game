@@ -8,7 +8,7 @@ class Tile:
         self.has_ship = False
         self.has_hit = False
         self.visited = False
-        self.submarine = None
+        self.submarine : Submarine = None
 
     def set_submarine(self, submarine):
         self.submarine = submarine

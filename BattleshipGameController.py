@@ -17,11 +17,12 @@ from kivy.config import Config
 
 
 
-class BattleshipGameController(App, EventDispatcher):
+class BattleshipGameController(App):
     game_state = StringProperty('menu')
     user_player_name = StringProperty('')
     user_player_score = StringProperty('0')
     computer_player_score = StringProperty('0')
+    ship_sunk_notification = StringProperty(None)
 
     def __init__(self):
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
@@ -58,8 +59,8 @@ class BattleshipGameController(App, EventDispatcher):
         Then, while there is no winner yet, we get the move from the player and then get the move from the computer,
         repeatedly. Once there is a winner, the game is over and the winner's name is announced."""
 
-        self.player = HumanPlayer(self.user_player_name)
-        self.computer = ComputerPlayer()
+        self.player = HumanPlayer(self.user_player_name, controller=self)
+        self.computer = ComputerPlayer(controller=self)
         self.is_human_turn = True
         self.winner = None
 
@@ -75,18 +76,15 @@ class BattleshipGameController(App, EventDispatcher):
         self.screen_manager.current='game'
         self.game_state = 'setup'
 
-        # self.setup()
-        # while self.winner is None:
-        #     self.player.get_move()
-        #     self.computer.get_move()
-        # print(f"{self.winner}wins!")
-
-
     def play_human_turn(self, coordinate):
         print(f'Human chose {coordinate}')
         value = self.computer.player_board.check_hit(coordinate)
         if value:
             self.user_player_score = str(int(self.user_player_score) + 1)
+            submarine = self.computer.get_submarine(coordinate)
+            if submarine.check_sunk():
+                self.ship_sunk_notification = f"You have sunk the computer's {submarine.name}"
+
         return value
 
     def play_computer_turn(self):
@@ -95,6 +93,10 @@ class BattleshipGameController(App, EventDispatcher):
         if val:
             self.computer.notify_hit(coord)
             self.computer_player_score = str(int(self.computer_player_score)+ 1)
+            submarine = self.player.get_submarine(coord)
+            if submarine.check_sunk():
+                self.ship_sunk_notification = f"The computer have sunk your {submarine.name}"
+
         return coord, val
 
     def setup(self):

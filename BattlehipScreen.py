@@ -1,5 +1,6 @@
 
 from kivy.app import App
+from kivy.clock import Clock
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
@@ -20,7 +21,9 @@ class BattleshipScreenInfo(BoxLayout):
         self.controller = controller
         self.playername : Label = Label(text='')
         self.playerscore = Label(text='0')
+        self.playername.outline_width = 1
         self.computername : Label = Label(text='Computer')
+        self.computername.outline_width = 1
         self.computerscore = Label(text='0')
 
         controller.bind(user_player_name=self.playername.setter('text'))
@@ -34,37 +37,24 @@ class BattleshipScreenInfo(BoxLayout):
 
         controller.bind(user_player_score=self.check_score_victory_user)
         controller.bind(computer_player_score=self.check_score_victory_computer)
+        controller.bind(ship_sunk_notification=self.notification_listener)
 
-        controller.bind(game_state=self.show_active_turn)
+    def notification_listener(self, instance, value):
+        Popup(title='Battleship sunk', content=Label(text=value), size_hint=(1,None) ,size=(200,200)).open()
 
-    def show_active_turn(self, instance, value):
-        if value == 'human_turn':
-            self.playername.outline_color = 1,1,1,1
-            self.computername.outline_color = 0,0,0,0
-        elif value == 'computer_turn':
-            self.computername.outline_color = 1,1,1,1
-            self.playername.outline_color = 0,0,0,0
-        else:
-            self.playername.outline_color = 0,0,0,0
-            self.playername.outline_color = 0,0,0,0
-
-
-
-        
-        
 
     def check_score_victory_user(self, instance, value):
         if int(value) < 17:
             return
         
-        Popup(title='Victory !!!', content=Label(text='User Won !!!!'), size_hint=(1,None) ,size=(200,200)).open()
+        Popup(title='Victory !!!', content=Label(text='YOU WON !!!!'), size_hint=(1,None) ,size=(200,200)).open()
         self.controller.screen_manager.current = 'menu'
         
     def check_score_victory_computer(self, instance, value):
         if int(value) < 17:
             return
         
-        Popup(title='You Lost !!!', content=Label(text='Coputer Won !!!!'), size_hint=(1,None) ,size=(200,200)).open()
+        Popup(title='You Lost !!!', content=Label(text='Computer Won !!!!'), size_hint=(1,None) ,size=(200,200)).open()
         
         self.controller.screen_manager.current = 'menu'
 
@@ -128,6 +118,7 @@ class BattleshipScreen(BoxLayout):
                 widget.text = ''
 
     def press(self, instance: Widget):
+        
         if self.controller.game_state == 'setup':
             Popup(title="Invalid move !", content=Label(text="You still need to position your submarines !"), size_hint=(1,None) ,size=(200,200)).open()
             return
@@ -140,19 +131,24 @@ class BattleshipScreen(BoxLayout):
             instance.text = "X"
             instance.background_color = 1, 0, 0, 1
         else:
-            instance.text = ' '
+            instance.text = 'HIT'
             name = self.controller.get_submarine_name(instance.sq_location)
-            if name == "Destroyer":
-                instance.background_color = 1, 0, 1, 1  # dark pink
-            if name == "Submarine":
-                instance.background_color = 0, 1, 1, 1  # dark turquoise (blue)
-            if name == "Cruiser":
-                instance.background_color = 0, 0, 1, 10  # dark blue
-            if name == "Battleship":
-                instance.background_color = 2, 0, 1, 2  # pink
-            if name == "Carrier":
-                instance.background_color = 0, 1, 0, 1  # dark green
+            instance.background_color = 0, 1, 0, 1  # dark green
+
+            # if name == "Destroyer":
+            #     instance.background_color = 1, 0, 1, 1  # dark pink
+            # if name == "Submarine":
+            #     instance.background_color = 0, 1, 1, 1  # dark turquoise (blue)
+            # if name == "Cruiser":
+            #     instance.background_color = 0, 0, 1, 10  # dark blue
+            # if name == "Battleship":
+            #     instance.background_color = 2, 0, 1, 2  # pink
+            # if name == "Carrier":
+            #     instance.background_color = 0, 1, 0, 1  # dark green
+
+        self.controller.active_turn = 'computer'        
         self.controller.game_state='computer_turn'
+
 
     def select(self, instance:Button):
         try:
@@ -174,19 +170,20 @@ class BattleshipScreen(BoxLayout):
                 for widg in self.topGrid.walk(restrict=True):
                     if hasattr(widg, 'sq_location') and widg.sq_location == coord:
                         widg.text='X'
-                        widg.background_color=195, 98, 96, 1
+                        widg.background_color=0,0,2,1
             else:
                 for widg in self.topGrid.walk(restrict=True):
                     if hasattr(widg, 'sq_location') and widg.sq_location == coord:
-                        widg.text=''
-                        widg.background_color= 0, 0, 1, 10
-            self.controller.game_state='human_turn'
+                        widg.text='HIT'
+                        # widg.background_color= 0, 2, 0, 1
+            self.controller.game_state = 'human_turn'
+            self.controller.active_turn = 'human'
+
         elif game_state == 'setup':
             self.set_initial_state()
             self.played_cooridinates = []
             
 
-                   
                         
                 
 
