@@ -22,3 +22,6 @@ After you have placed all your ships, you can begin attacking the ships of the c
 At the same time, the computer is attacking your ships.
 If all the tiles of a ship have been attacked, the ship sinks.
 Whoever sinks all of his opponent's ships first wins, and the game is over when there is a winner.
+
+https://github.com/sapire/Battleship-Game
+https://github.com/MorielTurjeman/Battleship-Game
