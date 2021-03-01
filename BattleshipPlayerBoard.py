@@ -46,11 +46,5 @@ class BattleshipPlayerBoard:
         return False
 
     def check_hit(self, coordinate):
-        print(coordinate)
         return self.grid[coordinate[0]][coordinate[1]].check_hit()
 
-# x = BattleshipPlayerBoard()
-# m = Submarine("Shira")
-# x = BattleshipPlayerBoard(10, 10)
-# m = Submarine("Shira", 4)
-# x.place_submarine_on_board(m, [[3, 4], [3, 2]])

@@ -18,17 +18,11 @@ class ComputerPlayer(IPlayer):
     def get_move(self):
         if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
             x, y = self.nearby_moves.pop()
-            is_hit = self.player_board.check_hit([x, y])
-            if is_hit is True:
-                self.hit_list.append((x, y))
             return x, y
 
         if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
             rand_col = random.randint(0, 9)
             rand_row = random.randint(0, 9)
-            is_hit = self.player_board.check_hit([rand_row, rand_col])  # make move and check if hit
-            if is_hit is True:  # check if hit, if so add to hit_list
-                self.hit_list.append((rand_row, rand_col))
             return rand_row, rand_col
 
         else:  # there is something in the hit list
@@ -69,9 +63,6 @@ class ComputerPlayer(IPlayer):
                 self.nearby_moves.append((x, y + 1))
 
             x, y = self.nearby_moves.pop()
-            is_hit = self.player_board.check_hit([x, y])
-            if is_hit is True:
-                self.hit_list.append((x, y))
             return x, y
 
     def place_submarines(self):
@@ -167,3 +158,6 @@ class ComputerPlayer(IPlayer):
 
     def place_submarine(self, submarine, location):
         return super().place_submarine(submarine, location)
+
+    def notify_hit(self, location):
+        self.hit_list.append(location)
