@@ -1,4 +1,3 @@
-# ###Note to myself: add stack or something like that to the class property, for the algorithm implementation.
 from IPlayer import IPlayer
 import random
 from Submarine import *
@@ -17,7 +16,6 @@ class ComputerPlayer(IPlayer):
     def add_to_hit_list(self, coordinate):
         self.hit_list.append((coordinate[0], coordinate[1]))
 
-<<<<<<< HEAD
     def random_attack(self):
         rand_col = random.randint(0, 9)
         rand_row = random.randint(0, 9)
@@ -31,40 +29,28 @@ class ComputerPlayer(IPlayer):
         if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
             if x == 0 and y == 0:  # top left corner
                 if (x, y + 1) not in self.moves_made:
-=======
-    def get_move(self):
-        if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
-            x, y = self.nearby_moves.pop()
-            return x, y
-
-        if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
-            rand_col = random.randint(0, 9)
-            rand_row = random.randint(0, 9)
-            return rand_row, rand_col
-
-        else:  # there is something in the hit list
-            x, y = self.hit_list.pop()
-            if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
-                if x == 0 and y == 0:  # top left corner
->>>>>>> e99dd03ad8084dda86fc37a9be020a8ca8bb58f7
                     self.nearby_moves.append((x, y + 1))
                 if (x+1, y) not in self.moves_made:
                     self.nearby_moves.append((x + 1, y))
+
             elif x == 9 and y == 9:  # bottom right corner
                 if (x - 1, y) not in self.moves_made:
                     self.nearby_moves.append((x - 1, y))
                 if (x, y - 1) not in self.moves_made:
                     self.nearby_moves.append((x, y - 1))
+
             elif x == 0 and y == 9:  #
                 if (x + 1, y) not in self.moves_made:
                     self.nearby_moves.append((x + 1, y))
                 if (x, y - 1) not in self.moves_made:
                     self.nearby_moves.append((x, y - 1))
+
             elif x == 9 and y == 0:
                 if (x - 1, y) not in self.moves_made:
                     self.nearby_moves.append((x - 1, y))
                 if (x, y + 1) not in self.moves_made:
                     self.nearby_moves.append((x, y + 1))
+
             elif x == 0:
                 if (x + 1, y) not in self.moves_made:
                     self.nearby_moves.append((x + 1, y))
@@ -72,6 +58,7 @@ class ComputerPlayer(IPlayer):
                     self.nearby_moves.append((x, y + 1))
                 if (x, y - 1) not in self.moves_made:
                     self.nearby_moves.append((x, y - 1))
+
             elif x == 9:
                 if (x - 1, y) not in self.moves_made:
                     self.nearby_moves.append((x - 1, y))
@@ -79,6 +66,7 @@ class ComputerPlayer(IPlayer):
                     self.nearby_moves.append((x, y - 1))
                 if (x, y + 1) not in self.moves_made:
                     self.nearby_moves.append((x, y + 1))
+
             elif y == 0:
                 if (x - 1, y) not in self.moves_made:
                     self.nearby_moves.append((x - 1, y))
@@ -86,6 +74,7 @@ class ComputerPlayer(IPlayer):
                     self.nearby_moves.append((x + 1, y))
                 if (x, y + 1) not in self.moves_made:
                     self.nearby_moves.append((x, y + 1))
+
             elif y == 9:
                 if (x + 1, y) not in self.moves_made:
                     self.nearby_moves.append((x + 1, y))
@@ -93,6 +82,7 @@ class ComputerPlayer(IPlayer):
                     self.nearby_moves.append((x - 1, y))
                 if (x, y - 1) not in self.moves_made:
                     self.nearby_moves.append((x, y - 1))
+
         else:  # not on the walls or corners so we can move anywhere
             if (x - 1, y) not in self.moves_made:
                 self.nearby_moves.append((x - 1, y))
@@ -119,15 +109,35 @@ class ComputerPlayer(IPlayer):
         else:  # there is something in the hit list
             self.find_nearby_moves()
             x, y = self.nearby_moves.pop()
+            is_hit = self.player_board.check_hit([x, y])
+            if is_hit is True:
+                self.hit_list.append((x, y))
+            return x, y
+
+    def get_move(self):
+        if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
+            x, y = self.nearby_moves.pop()
+            is_hit = self.player_board.check_hit([x, y])
+            self.moves_made.append((x, y))  # mark that we made this move so we don't repeat it
+            if is_hit is True:
+                self.hit_list.append((x, y))
+            return x, y
+
+        if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
+            rand_row, rand_col = self.random_attack()
+            self.moves_made.append((rand_row, rand_col))  # mark that we made this move so we don't repeat it
+            return rand_row, rand_col
+
+        else:  # there is something in the hit list
+            self.find_nearby_moves()  # we found something in the hit list, so we calculate all the nearby tiles
+            # that are on the board and haven't been tried yet
+            x, y = self.nearby_moves.pop()
+            is_hit = self.player_board.check_hit([x, y])  # make move
+            if is_hit is True:  # if hit add to hitlist
+                self.hit_list.append((x, y))
             return x, y
 
     def place_submarines(self):
-        # at the beginning choose a random, valid place on the board for the first ship
-        # while there are still ships to place:
-        #   choose at random if the ship is vertical or horizontal
-        #   then choose at random a place on the board
-        #   if the chosen location is invalid, try again
-
         # Place "Carrier":
         is_carrier_placed = False
         while not is_carrier_placed:
