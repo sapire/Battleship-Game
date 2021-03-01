@@ -11,3 +11,14 @@ Python 3
 
 ## How to run
 1. Type the following in the commandline `python3 BattleshipGameController.py`
+
+## How to play
+You are playing battleships against the computer.
+At the beginning, you need to enter your name.
+Then, before the game can start, you need to place all your ships.
+You do so by clicking on the name of the ship and then clicking on the upper board.
+You can choose between vertically and horizontally by clicking on the 'V' button.
+After you have placed all your ships, you can begin attacking the ships of the computer (on the lower board).
+At the same time, the computer is attacking your ships.
+If all the tiles of a ship have been attacked, the ship sinks.
+Whoever sinks all of his opponent's ships first wins, and the game is over when there is a winner.
