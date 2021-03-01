@@ -17,6 +17,7 @@ class ComputerPlayer(IPlayer):
     def add_to_hit_list(self, coordinate):
         self.hit_list.append((coordinate[0], coordinate[1]))
 
+<<<<<<< HEAD
     def random_attack(self):
         rand_col = random.randint(0, 9)
         rand_row = random.randint(0, 9)
@@ -30,6 +31,22 @@ class ComputerPlayer(IPlayer):
         if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
             if x == 0 and y == 0:  # top left corner
                 if (x, y + 1) not in self.moves_made:
+=======
+    def get_move(self):
+        if len(self.nearby_moves) > 0:  # if we have tiles nearby where there was a hit
+            x, y = self.nearby_moves.pop()
+            return x, y
+
+        if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
+            rand_col = random.randint(0, 9)
+            rand_row = random.randint(0, 9)
+            return rand_row, rand_col
+
+        else:  # there is something in the hit list
+            x, y = self.hit_list.pop()
+            if x == 0 or y == 0 or x == 9 or y == 9:  # "walls" of the board
+                if x == 0 and y == 0:  # top left corner
+>>>>>>> e99dd03ad8084dda86fc37a9be020a8ca8bb58f7
                     self.nearby_moves.append((x, y + 1))
                 if (x+1, y) not in self.moves_made:
                     self.nearby_moves.append((x + 1, y))
@@ -102,9 +119,6 @@ class ComputerPlayer(IPlayer):
         else:  # there is something in the hit list
             self.find_nearby_moves()
             x, y = self.nearby_moves.pop()
-            is_hit = self.player_board.check_hit([x, y])
-            if is_hit is True:
-                self.hit_list.append((x, y))
             return x, y
 
     def place_submarines(self):
@@ -200,3 +214,6 @@ class ComputerPlayer(IPlayer):
 
     def place_submarine(self, submarine, location):
         return super().place_submarine(submarine, location)
+
+    def notify_hit(self, location):
+        self.hit_list.append(location)

@@ -12,17 +12,19 @@ from kivy.uix.button import Button
 from kivy.graphics import Color
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
+from kivy.uix.screenmanager import Screen
 
-
-class Main_screen(GridLayout):
+class Main_screen(Screen):
     def __init__(self,controller, **kwargs):
-        super(Main_screen, self).__init__(cols=2)
-        Window.size=(1200,1000)
+        super(Main_screen, self).__init__(**kwargs)
         self.controller= controller
         self.battleship_screen = BattleshipScreen(controller=controller)
-        self.add_widget(self.battleship_screen)
         self.ship_selection= Ship_Selection(controller,size_hint_x=0.3, spacing=10)
-        self.add_widget(self.ship_selection)
+        layout = GridLayout(cols=2)
+
+        layout.add_widget(self.battleship_screen)
+        layout.add_widget(self.ship_selection)
+        self.add_widget(layout)
 
 
 
