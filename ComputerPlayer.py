@@ -115,6 +115,7 @@ class ComputerPlayer(IPlayer):
         else:  # there is something in the hit list
             self.find_nearby_moves()
             x, y = self.nearby_moves.pop()
+            self.moves_made.append((x, y))
             # is_hit = self.player_board.check_hit([x, y])
             # if is_hit is True:
             #     self.hit_list.append((x, y))
@@ -139,6 +140,7 @@ class ComputerPlayer(IPlayer):
             # that are on the board and haven't been tried yet
             if len(self.nearby_moves) > 0:
                 x, y = self.nearby_moves.pop()
+                self.moves_made.append((x, y))
                 return x, y
             # is_hit = self.player_board.check_hit([x, y])  # make move
             # if is_hit is True:  # if hit add to hitlist
