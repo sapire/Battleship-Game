@@ -32,9 +32,9 @@ class BattleshipGameController(App):
 
     def build(self):
         Config.write()
-        sm = ScreenManager(size=(1200,1500))
-        sm.add_widget(MenuScreen(name='menu', controller=self, size=(1200,1500)))
-        sm.add_widget(Main_screen(name='game', controller=self, size=(1200,1500)))
+        sm = ScreenManager(size=(1400,1500))
+        sm.add_widget(MenuScreen(name='menu', controller=self))
+        sm.add_widget(Main_screen(name='game', controller=self))
         self.screen_manager = sm
         return sm
         # return Main_screen(self)
@@ -44,8 +44,8 @@ class BattleshipGameController(App):
             self.computer.place_submarines()
             self.game_state = 'human_turn'
         if value == 'menu':
-            self.computer_player_score = 0
-            self.user_player_score = 0
+            self.computer_player_score = "0"
+            self.user_player_score = "0"
 
         
     def get_submarine_name(self, coordinate):
