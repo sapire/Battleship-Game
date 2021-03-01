@@ -3,6 +3,7 @@ This is our final project in the course "Methods in Software Engineering".
 
 ## Dependencies
 Python 3
+Make sure to add python to the PATH, you can do this during the install there is a checkbox saying 'add python to environment'
 
 ## How to install
 1. Download the files into some directory.
