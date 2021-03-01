@@ -109,6 +109,7 @@ class ComputerPlayer(IPlayer):
 
         if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
             rand_row, rand_col = self.random_attack()
+            self.moves_made.append((rand_row, rand_col))
             return rand_row, rand_col
 
         else:  # there is something in the hit list
@@ -144,6 +145,7 @@ class ComputerPlayer(IPlayer):
             #     self.hit_list.append((x, y))
             else:
                 x, y = self.random_attack()
+                self.moves_made.append((x, y))
                 return x, y
 
 
