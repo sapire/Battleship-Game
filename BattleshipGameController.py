@@ -77,7 +77,6 @@ class BattleshipGameController(App):
         self.game_state = 'setup'
 
     def play_human_turn(self, coordinate):
-        print(f'Human chose {coordinate}')
         value = self.computer.player_board.check_hit(coordinate)
         if value:
             self.user_player_score = str(int(self.user_player_score) + 1)

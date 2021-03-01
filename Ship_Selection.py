@@ -10,25 +10,30 @@ class Ship_Selection(BoxLayout):
         self.controller= controller
 
         self.add_widget(Widget(size_hint=(1, 0.1)))
-        self.arrow= Button(text=">", size= (20, 20), size_hint=(.1, None))
+        self.arrow= Button(text=">", size= (20, 20), size_hint=(None, None))
         self.arrow.bind(on_press=self.orientation)
         self.add_widget(self.arrow)
-        self.carrier= Button(text="Carrier", size=(100,40),  size_hint=(.5, None))
+        self.carrier= Button(text="Carrier", size=(140,40),  size_hint=(None, None))
         self.carrier.bind(on_press=self.shipSelected)
         self.add_widget(self.carrier)
-        self.battleship=Button(text="Battleship",size=(80,40), size_hint=(.4, None))
+        self.battleship=Button(text="Battleship",size=(110,40), size_hint=(None, None))
         self.battleship.bind(on_press=self.shipSelected)
         self.add_widget(self.battleship)
-        self.cruiser= Button(text="Cruiser",size=(60,40), size_hint=(.3, None))
+        self.cruiser= Button(text="Cruiser",size=(90,40), size_hint=(None, None))
         self.cruiser.bind(on_press= self.shipSelected)
         self.add_widget(self.cruiser)
-        self.submarine= Button(text="Submarine",size=(60,40), size_hint=(.3, None))
+        self.submarine= Button(text="Submarine",size=(90,40), size_hint=(None, None))
         self.submarine.bind(on_press=self.shipSelected)
         self.add_widget(self.submarine)
-        self.destroyer= Button(text="Destroyer",size=(40,40),size_hint=(.2, None))
+        self.destroyer= Button(text="Destroyer",size=(70,40),size_hint=(None, None))
         self.destroyer.bind(on_press=self.shipSelected)
         self.add_widget(self.destroyer)
         self.add_widget(Widget())
+        self.add_widget(Widget())
+        self.leave_game = Button(text="Leave game", size=(100,40), size_hint=(None,None))
+        self.leave_game.bind(on_press=self.exit_game)
+        self.add_widget(self.leave_game)
+
 
         self.controller.bind(game_state=self.disable_buttons)
 
@@ -61,6 +66,8 @@ class Ship_Selection(BoxLayout):
             self.cruiser.disabled = True
             
 
+    def exit_game(self, instance):
+        self.controller.screen_manager.current = 'menu'
 
 
 
