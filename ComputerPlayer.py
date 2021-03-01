@@ -131,11 +131,16 @@ class ComputerPlayer(IPlayer):
         if len(self.hit_list) > 0:  # there is something in the hit list
             self.find_nearby_moves()  # we found something in the hit list, so we calculate all the nearby tiles
             # that are on the board and haven't been tried yet
-            x, y = self.nearby_moves.pop()
+            if len(self.nearby_moves) > 0:
+                x, y = self.nearby_moves.pop()
+                return x, y
             # is_hit = self.player_board.check_hit([x, y])  # make move
             # if is_hit is True:  # if hit add to hitlist
             #     self.hit_list.append((x, y))
-            return x, y
+            else:
+                x, y = self.random_attack()
+                return x, y
+
 
     def place_submarines(self):
         # Place "Carrier":
