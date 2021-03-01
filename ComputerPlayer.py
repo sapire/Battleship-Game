@@ -123,12 +123,12 @@ class ComputerPlayer(IPlayer):
             #     self.hit_list.append((x, y))
             return x, y
 
-        if len(self.hit_list) == 0:  # if there is nothing in the hit_list, choose at random
+        if len(self.hit_list) <= 0:  # if there is nothing in the hit_list, choose at random
             rand_row, rand_col = self.random_attack()
             self.moves_made.append((rand_row, rand_col))  # mark that we made this move so we don't repeat it
             return rand_row, rand_col
 
-        else:  # there is something in the hit list
+        if len(self.hit_list) > 0:  # there is something in the hit list
             self.find_nearby_moves()  # we found something in the hit list, so we calculate all the nearby tiles
             # that are on the board and haven't been tried yet
             x, y = self.nearby_moves.pop()
