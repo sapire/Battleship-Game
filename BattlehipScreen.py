@@ -153,7 +153,6 @@ class BattleshipScreen(BoxLayout):
     def select(self, instance:Button):
         try:
             coordiantes = self.controller.place_submarine(instance.sq_location)
-            print(coordiantes)
             if coordiantes:
                 for i in self.topGrid.walk(restrict=True):
                     if hasattr(i, 'sq_location') and i.sq_location in coordiantes:
