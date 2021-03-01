@@ -17,11 +17,16 @@ class ComputerPlayer(IPlayer):
         self.hit_list.append((coordinate[0], coordinate[1]))
 
     def random_attack(self):
-        rand_col = random.randint(0, 9)
-        rand_row = random.randint(0, 9)
-        # is_hit = self.player_board.check_hit([rand_row, rand_col])  # make move and check if hit
-        # if is_hit is True:  # check if hit, if so add to hit_list
-        #     self.hit_list.append((rand_row, rand_col))
+        attack_made = False
+        while not attack_made:
+            rand_col = random.randint(0, 9)
+            rand_row = random.randint(0, 9)
+            # is_hit = self.player_board.check_hit([rand_row, rand_col])  # make move and check if hit
+            # if is_hit is True:  # check if hit, if so add to hit_list
+            #     self.hit_list.append((rand_row, rand_col))
+            if (rand_row, rand_col) not in self.moves_made:
+                attack_made = True
+
         return rand_row, rand_col
 
     def find_nearby_moves(self):
